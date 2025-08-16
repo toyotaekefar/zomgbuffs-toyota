@@ -1,0 +1,22 @@
+## Interface: 30300
+## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80Portalz|r] by |cFFFF8080Zek|r
+## Notes: ZOMGBuffs, Mage Portalz
+## Author: Zek
+## Version: $Revision: 141 $
+## LoadOnDemand: 1
+## RequiredDeps: ZOMGBuffs
+## X-ZOMGBuffs: yes
+## X-Classes: MAGE
+## X-Curse-Packaged-Version: r156
+## X-Curse-Project-Name: ZOMGBuffs
+## X-Curse-Project-ID: zomgbuffs
+## X-Curse-Repository-ID: wow/zomgbuffs/mainline
+
+## X-Category: Buffs
+## X-eMail: zeksie@googlemail.com
+## X-License: GPL v2 or later
+## X-Donate: PayPal:pussicat AT ntlworld DOT com
+
+Locales\Locales.xml
+
+ZOMGBuffs_Portalz.lua
