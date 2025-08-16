@@ -24,7 +24,7 @@ local z = ZOMGBuffs
 local man = z:NewModule("ZOMGBlessingsManager")
 ZOMGBlessingsManager = man
 
-z:CheckVersion("$Revision: 156 $")
+z:CheckVersion("$Revision: 157 $")
 
 do
 	local frostPresence = GetSpellInfo(48263)
