@@ -1484,7 +1484,15 @@ do
 	
 	function z:UnitRank(who)
 		local index = UnitInRaid(who)
-		if (index) then
+		if (not ZOMGBlessingsManager) then
+			LoadAddOn("ZOMGBuffs_BlessingsManager")
+		end
+-- Toyota
+		if bm.db.profile.freeassign == true then
+			return 1
+		--if (index) then
+		elseif (index) then
+-- Toyota
 			local name, rank, group = GetRaidRosterInfo(index + 1)
 			return rank or 0
 		elseif (GetNumPartyMembers() > 0) then
