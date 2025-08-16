@@ -1,0 +1,8 @@
+<Bindings>
+	<Binding name="ZOMGBUFFS_PORTAL" header="ZOMGBUFFS" runOnUp="true">
+		if (ZOMGPortalz) then
+			ZOMGPortalz:Keybinding(keystate)
+		end
+	</Binding>
+</Bindings>
+

@@ -1,0 +1,9 @@
+ZOMGBuffs TODO
+
+Move following spells from self buff to raid buff module, with code to deal with targetted rebuff (with in-combat icons).
++ Fear Ward
++ Earthen Shield
++ Thorns
+
+And make these single target raid buff spells applicable to certain players only:
++ Amplify/Dampen Magic

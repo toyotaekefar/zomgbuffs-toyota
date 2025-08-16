@@ -1,0 +1,11 @@
+ZOMGBuffs FAQ
+-------------
+
+Q. Why can you not setup buffs for pets?
+A. Since the change Blizzard made that pets will get the class buffs (hunter pets get warrior buffs, warlock pets get warlock buffs), I decided it was not worth the extra coding hassle and buffing effort to override this every time you buffed warriors or warlocks. Pets will be buffed if they're missing them, but merely will use their associated class buff setting.
+
+Q. The Blessings Manager says "Didn't allocate SoAndSoBuff to SoAndSoPlayer"
+A. Yes, still working on the generation code. In such cases, you'll have to re-jiggle for that person just a little but. 99% of the time, this is limited to cases where there's a single sanctuary buff required by someone.
+
+Q. Why is Earthen Shield in the self buffing module?
+A. ZOMGBuffs is not finished, it's a large undertaking to get everything working for every class and every case. Patience youngling.

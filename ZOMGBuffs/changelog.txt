@@ -1,0 +1,78 @@
+Beta changelog
+
+0.9c
+- Refined the buff list display for paladins and raid leaders (people who have the blessings manager loaded) so that the displayed paladin buffs match the assigned buffs from blessings manager (1st row in manager == 1st column in display). Also the first two letters of the Paladin's name are shown for their column.
++ Option to always load the Blessings Manager, even if you're not eligable to configure blessings.
+- Now checks the rank of player pushing templates from manager, and only accepts if class is PALADIN or rank is leader/assistant.
+- Now won't let you edit the blessings if you do not have sufficient rank (not a paladin or not raid leader/assistant).
++ Option to not self auto-buff with the Spirit Tap buff (Priest only).
+* Should no longer allocate single exceptions that a specific Paladin cannot buff.
+* Should cope better when scheduling a rebuff on a group who's first attempted target was out of line of sight first attempt.
++ Will now also buff pets. Not configurable, but will simply buff the pets as if they'd been present when the group buffs went out. So hunter pets will get warrior buffs and warlock pets will get warlock buffs.
++ Options to display Well Fed and Potion/Flask presence in the raid buff list.
+- Now removes any active buff action pending when you start to eat/drink/channel.
+- Slightly better handling of when to rebuff single/class blessings, now accounting for other members of class with exceptions active.
++ If a player whispers !buff or !zomg to you and you have the Blessings Manager running, you will auto reply with which paladin does which blessings. Will also show the buff icons in chat for clarity and speed of reading (WoW 2.4).
++ A player can also whisper !zomg -buff +buff. This will request that they get +buff instead of -buff. For example: !zomg -bom +bow will request Blessing of Wisdom instead of Blessing of Might. It doesn't matter which paladin they whisper, and can even whisper to raid leader/assistant if they are running ZOMGBuffs.
+* Recieving a paladin template would not always recheck what needs to be buffed if there was a buff to do currently in the queue.
++ Border options for icon and list.
+- Now cancels the queued buff if the target dies or leaves raid.
++ The popup buff list will now allow you to buff your alternate raid buffs for Druid, Priest and Mage classes. The tooltip shows which keys to activate which spells. Alt remains the toggle for single/party-wide spells. Shift and Control will active the alternative spells. It will also show the time left bar depending on the keyboard modifier pressed at the time.
+* Fixed a problem with the list not being initially configured with clickable spells immediately after logging in.
++ Shows the number of Symbol of Kings remaining per paladin in the Blessings Manager.
+* Fixed spam problem when cycling too fast through Blessing Manager buffs. Now the manager forces you to wait for the response from the player before clicking again. This will slow things down a fraction, but will stop the various anomolies with clicking too fast.
+- Tracking options part of Self Buffs module removed. Seems unnecesary now with the new minimap access. Let me know if this assumption is wrong.
+* Will not try to buff if you are charmed, or if you are mind controlling.
+* Blessings Manager generation fixed for odd cases (such as single target overrides that only certain paladins can do), as well as some combinations of main buffs that would fail with certain specs.
+* Uses smaller data packets when making small changes to existing live templates.
++ Notice area is now movable under Display options.
++ Options to prohibit the popup raid list from showing when solo/party/raid.
+* Renamed folders to be more logical, all prefix with ZOMGBuffs now. This makes some other mods work better (such as PerformanceFu will group ZOMG all in one, and ACP will group it also).
++ Auto Group Assignments for group buffers. Assuming all are using ZOMGBuffs, and all have this enabled, then there will never be a conflict about who buffs which group. It'll just work.
+* Fixed line of sight/range error problems. Will now blacklist those players for 10 seconds.
+
+0.9b
+* Fixed exceptions menu for manager.
+* Fixed nil error in ZOMGBuffs.lua.
+
+0.9a
+* Fixes for the PallyPower interface.
+* Fixed the error about AceComm-3.0.
+
+0.9
++ Will now interface with PallyPower.
+- Configure mode of Blessings Manager significantly overhauled to be gererally more useful. You can now setup not only class assignments, but sub-class assignments (priest vs shadow priest, or resto druid vs feral druid), then simply inform it which players should be placed into a different sub-class, and the auto generate will take care of the rest. Most popular sub-class will get the group buff and the less popular will be single buffed. No more need to worry about setting up individual single buffs for everyone who needs.
+- Blessing Manager option to highlight selection more clearly.
++ Blessing Manager option to send the master template or sub-class assignments to another ZOMGBuffs user.
+- Will only list exceptions in the tooltip if the players are present in the raid.
+* Another fix to the blessings display in the raid popup list. Should no longer display extra icons.
+
+0.8b
++ Option to still display notices that self buffs are needed, even when in combat.
+* Duplicate message when buffing INT, MARK or STA.
+* Extra paladin buff icons sometimes showing in raid buff list.
+* Occasional missed opportunities to buff under certain conditions. (Funder's Bug)
+- Will now no longer check for things to buff when you are eating, drinking or channeling a spell.
+
+0.8a
++ Ordering of assigned buffs generated by Blessings Manager now more consistant for clarity of viewing (ie: Same buff to same paladin where possible).
++ You can alt-click the ZOMG icon to toggle the Blessings Manager if it is loaded.
+* 'None' in exceptions menu wasn't being highlighted.
+* Frame strata problems, with buttons popping through wrong layers.
+* nil error in ZOMGBlessingsManager.lua, line 939
+
+0.8
+- Blessings Manager now more intuitive and reflects current buff setup of paladins even after they make their own changes.
+* Group buffers should no longer single buff PVP players if the PVP option is off.
+
+0.7a
+* Typo. oops
+
+0.7
+* The comms issue with Blessings Manager
+
+
+
+* Fix
+- Change
++ Addition

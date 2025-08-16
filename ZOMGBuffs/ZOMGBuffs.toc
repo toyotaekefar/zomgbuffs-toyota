@@ -1,0 +1,56 @@
+﻿## Interface: 30300
+## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs |rby |cFFFF8080Zek|r
+## Notes: All in one buffing mod for all classes. Paladin buff generated assignments based on Paladin capabilities and raid member sub-classes (druid tank vs. druid healer etc.). Plus overview of important raid buffs, and instant access rebuff on right click.
+## Author: Zek
+## Version: $Revision: 149 $
+## SavedVariables: ZOMGBuffsDB
+## SavedVariablesPerCharacter: ZOMGBuffsPerCharDB
+## X-Curse-Packaged-Version: r156
+## X-Curse-Project-Name: ZOMGBuffs
+## X-Curse-Project-ID: zomgbuffs
+## X-Curse-Repository-ID: wow/zomgbuffs/mainline
+
+## X-Category: Buffs
+## X-eMail: zeksie@googlemail.com
+## X-License: GPL v2 or later
+## X-Donate: PayPal:pussicat AT ntlworld DOT com
+## X-Website: http://www.wowace.com/wiki/ZOMGBuffs
+
+## OptionalDeps: Ace2, AceLocale-2.2, AceAddon-2.0, AceDB-2.0, AceEvent-2.0, AceModuleCore-2.0, AceHook-2.1, AceComm-2.0, DewdropLib, FuBarPlugin-2.0, TabletLib, LibSharedMedia-3.0, ChatThrottleLib, LibSink-2.0, LibTalentQuery-1.0, LibGroupTalents-1.0
+
+UTF8\utf8data.lua
+UTF8\utf8.lua
+
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+
+libs\AceLibrary\AceLibrary.lua
+libs\AceOO-2.0\AceOO-2.0.lua
+libs\AceConsole-2.0\AceConsole-2.0.lua
+libs\AceEvent-2.0\AceEvent-2.0.lua
+libs\AceComm-2.0\AceComm-2.0.lua
+libs\AceAddon-2.0\AceAddon-2.0.lua
+libs\AceModuleCore-2.0\AceModuleCore-2.0.lua
+libs\AceDB-2.0\AceDB-2.0.lua
+libs\AceHook-2.1\AceHook-2.1.lua
+libs\AceLocale-2.2\AceLocale-2.2.lua
+
+libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua
+libs\Tablet-2.0\Tablet-2.0.lua
+libs\Dewdrop-2.0\Dewdrop-2.0.lua
+libs\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
+libs\LibSink-2.0\LibSink-2.0.lua
+
+libs\LibTalentQuery-1.0\LibTalentQuery-1.0.lua
+libs\LibGroupTalents-1.0\LibGroupTalents-1.0.lua
+#@end-no-lib-strip@
+
+Locales\Locales.xml
+
+ZFrame.lua
+ZOMGReagents.lua
+ZOMGBuffs.lua
+ZOMGModulePrototype.lua
+
+
