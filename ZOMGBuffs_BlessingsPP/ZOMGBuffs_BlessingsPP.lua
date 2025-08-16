@@ -7,54 +7,16 @@ end
 
 local L = LibStub("AceLocale-2.2"):new("ZOMGBlessingsPP")
 local LGT = LibStub("LibGroupTalents-1.0")
-local bm
+local bm = ZOMGBlessingsManager
+-- Toyota
+local tinsert = table.insert
+local sfind = string.find
+-- Toyota
 
 -- Traffic
 -- ASSIGN Name classIndex spellIndex   				- When PallyPower click on your spell for a class (1 spell only)
 -- NASSIGN PaladinName classIndex TargetName buffIndex		- Single exception
 
-L:RegisterTranslations("enUS", function()
-	return {
-		["PP_TSEARCH"]		= "^Improved (.*)",
-	}
-end)
-
-L:RegisterTranslations("deDE", function()
-	return {
-		["PP_TSEARCH"]		= "^Verbesserter (.*)",
-	}
-end)
-
-L:RegisterTranslations("frFR", function()
-	return {
-		["PP_TSEARCH"]		= "(.*) améliorée$",
-	}
-end)
-
-L:RegisterTranslations("esES", function()
-	return {
-		["PP_TSEARCH"]		= "(.*) mejorada$",
-	}
-end)
-
-L:RegisterTranslations("zhCN", function()
-	return {
-		["PP_TSEARCH"]		= "^强化(.*)",
-	}
-end)
-
-L:RegisterTranslations("zhTW", function()
-	return {
-		["PP_TSEARCH"]		= "^強化(.*)",
-	}
-end)
-
-L:RegisterTranslations("koKR", function()
-	return {
-		["PP_TSEARCH"]		= "(.*) 연마$",
-	}
-end)
-	
 local z = ZOMGBuffs
 local mod = z:NewModule("ZOMGBlessingsPP")
 ZOMGBlessingsPP = mod
@@ -75,10 +37,29 @@ local PallyPowerAuras = {
 	[7] = GetSpellInfo(32223), --BS["Crusader Aura"],
 };
 
+-- Toyota
+local PallyPowerSpells = {
+	[0] = "",
+	[1] = GetSpellInfo(19742), --BS["Blessing of Wisdom"],
+	[2] = GetSpellInfo(19740), --BS["Blessing of Might"],
+	[3] = GetSpellInfo(20217), --BS["Blessing of Kings"],
+	[4] = GetSpellInfo(20911), --BS["Blessing of Sanctuary"],
+};
+
+local PallyPowerGSpells = {
+	[0] = "",
+	[1] = GetSpellInfo(25894), --BS["Greater Blessing of Wisdom"],
+	[2] = GetSpellInfo(25782), --BS["Greater Blessing of Might"],
+	[3] = GetSpellInfo(25898), --BS["Greater Blessing of Kings"],
+	[4] = GetSpellInfo(25899), --BS["Greater Blessing of Sanctuary"],
+};
+-- Toyota
+
 local ppSpellOrder = {"BOW", "BOM", "BOK", "SAN"}
 local ppClassOrder = {"WARRIOR", "ROGUE", "PRIEST", "DRUID", "PALADIN", "HUNTER", "MAGE", "WARLOCK", "SHAMAN", "DEATHKNIGHT", "PET"}
 local ppSpellIndex
 local ppClassIndex
+
 do
 	local function IndexArray(source)
 		local ret = {}
@@ -201,7 +182,10 @@ function mod:ProcessChat(sender, msg)
 			local zomgSpellType = ppSpellOrder[spellIndex + 0]
 			--local className = ppClassOrder[classIndex + 0]		-- ZOMG doesn't care about class index
 
-			bm:OnReceiveTemplatePart(sender, sender, tname, zomgSpellType)
+-- Toyota
+			--bm:OnReceiveTemplatePart(sender, sender, tname, zomgSpellType)
+			bm:OnReceiveTemplatePart(sender, pname, tname, zomgSpellType)
+-- Toyota
 		end
 
 	elseif (strfind(msg, "^MASSIGN")) then
@@ -229,15 +213,33 @@ function mod:ProcessChat(sender, msg)
 			bm:OnReceiveSymbolCount(sender, count + 0)
 		end
 
-	elseif (strfind(msg, "^FREEASSIGN")) then
-		local enable = strmatch(msg, "^FREEASSIGN (%s)") == "YES"
+-- Toyota
+	elseif (strfind(msg, "^FREEASSIGN YES")) and self.AllPallys[sender] then
+		self.AllPallys[sender].freeassign = true
+		
+	elseif (strfind(msg, "^FREEASSIGN NO")) and self.AllPallys[sender] then
+		self.AllPallys[sender].freeassign = false
+		--local enable = strmatch(msg, "^FREEASSIGN (%s)") == "NO"
+-- Toyota
 		-- TODO - Free assign lets anyone set blessings, regardless of rank. So reflect this in Manager
 
 	elseif (strfind(msg, "^CLEAR")) then
+-- Toyota
+		self:ClearAssignments(sender)
+-- Toyota
 		-- Do nothing with this. Clear is necessary with Pally power because of the necessity to setup blessings from scratch.
 		-- Since the manager will auto-allocate easily, we'll avoid this for now.
 	end
 end
+
+-- Toyota
+function mod:ClearAssignments(sender)
+	for i=1, 10 do
+		bm:OnReceiveTemplatePart(sender, self.player, ppClassOrder[i], nil)
+		bm:OnReceiveBroadcastAura(sender, self.player, nil)
+	end
+end
+-- Toyota
 
 -- GiveTemplate
 -- Called by Blessings Manager to give template part changes to PallyPower users
@@ -312,97 +314,75 @@ function mod:ScanInventory()
 	end
 end
 
-local ppRankSearch = RANK.." (%d+)"
+-- Toyota
+--local ppRankSearch = RANK.." (%d+)"
+-- Toyota
 function mod:ScanSpells()
 	if (not self.AllPallys) then
 		self.AllPallys = {}
 		self.player = UnitName("player")
 	end
-
-	local _, class = UnitClass("player")
+	
+-- Toyota
+	local _, class=UnitClass("player")
 	if (class == "PALADIN") then
 		local RankInfo = {}
-		local i = 1
-		while true do
-			local spellName, spellRank = GetSpellName(i, BOOKTYPE_SPELL)
-			--local spellTexture = GetSpellTexture(i, BOOKTYPE_SPELL)
-			if (not spellName) then
-				break
+		for i = 1, 4 do -- find max spell ranks
+			local spellName, spellRank = GetSpellInfo(PallyPowerGSpells[i])
+			if not spellName then -- fallback to lower blessings
+				spellName, spellRank = GetSpellInfo(PallyPowerSpells[i])
 			end
-
-			local zomgBlessing = z.blessings[spellName]
-			if (zomgBlessing) then
-				if (not spellRank or spellRank == "") then
-					spellRank = RANK.." 1"
-				end
-
-				local rank = strmatch(spellRank, ppRankSearch)
-				if (rank) then
-					local id = ppSpellIndex[zomgBlessing.type]
-					rank = tonumber(rank)
-					if (id) then
-						if (not RankInfo[id]) then
-							RankInfo[id] = {}
-						end
-						if (not RankInfo[id].rank or (zomgBlessing.class and not RankInfo[id].greater) or ((RankInfo[id].greater == zomgBlessing.class) and rank > (RankInfo[id].rank or 0))) then
-							RankInfo[id].rank = rank
-						end
-						RankInfo[id].talent = 0
-						RankInfo[id].greater = zomgBlessing.class or RankInfo[id].greater
-					end
-				end
+			if not spellRank or spellRank == "" then -- spells without ranks
+				spellRank = "1"		 -- BoK and BoS
 			end
-			i = i + 1
-		end
-
-		local group = GetActiveTalentGroup()
-		for t = 1,GetNumTalentTabs() do
-			for i = 1,GetNumTalents(t) do
-				local nameTalent, icon, iconx, icony, currRank, maxRank = GetTalentInfo(t, i, nil, nil, group)
-				local bless = strmatch(nameTalent, L["PP_TSEARCH"])
-				if (bless) then
-					self.initialized = true
-					local zomgBlessing = z.blessings[bless]
-					if (zomgBlessing) then
-						local id = ppSpellIndex[zomgBlessing.type]
-						if (id and RankInfo[id]) then
-							RankInfo[id].talent = currRank
-							break
-						end
-					end
+			local rank = select(3, sfind(spellRank, "(%d+)"))
+			local talent = 0
+			rank = tonumber(rank)
+			if spellName then
+				RankInfo[i] = {}
+				RankInfo[i].rank = rank
+				if i == 1 then  -- wisdom
+					talent = talent + select(5, GetTalentInfo(1, 10))
+				elseif i == 2 then -- might
+			    	talent = talent + select(5, GetTalentInfo(3, 5))
+			    --elseif i == 3 then -- kings
+			    --	talent = talent + select(5, GetTalentInfo(2, 2))
 				end
+
+				RankInfo[i].talent = talent
 			end
 		end
-
+		
 		self.AllPallys[self.player] = RankInfo
-
-		RankInfo.AuraInfo = {}
+		self.AllPallys[self.player].AuraInfo = {}
 		for i = 1, PALLYPOWER_MAXAURAS do -- find max ranks/talents for auaras
 			local spellName, spellRank = GetSpellInfo(PallyPowerAuras[i])
 			
 			if spellName then
-				RankInfo.AuraInfo[i] = {}
+				self.AllPallys[self.player].AuraInfo[i] = {}
 				
 				if not spellRank or spellRank == "" then -- spells without ranks
 					spellRank = "1"		 -- Concentration, Crusader
 				end
-
+				
 				local talent = 0
 				if i == 1 then
-					talent = LGT:UnitHasTalent("player", (GetSpellInfo(20138))) or 0	-- Improved Devotion Aura
-
+					-- Lach22Mar08: Prot talent tree appears to be out-of-sync... 
+					-- Imp Dev. Aura should be 10, but wont return correct value unless 11 is used for the index...
+					-- I assume that they will correct if before release... 
+					talent = talent + select(5, GetTalentInfo(2, 11)) -- Improved Devotion Aura
 				elseif i == 2 then
-					talent = LGT:UnitHasTalent("player", (GetSpellInfo(31869))) or 0	-- Sanctified Retribution
-
+			    	talent = talent + select(5, GetTalentInfo(3, 14))  -- Sanctified Retribution
 			    elseif i == 3 then
-					talent = LGT:UnitHasTalent("player", (GetSpellInfo(20254))) or 0	-- Improved Concentration Aura
+			    	talent = talent + select(5, GetTalentInfo(1, 9))  -- Improved Concentration Aura
 				end
 
-				RankInfo.AuraInfo[i].talent = talent
-				RankInfo.AuraInfo[i].rank = tonumber(select(3, string.find(spellRank, "(%d+)")))
+				self.AllPallys[self.player].AuraInfo[i].talent = talent
+				self.AllPallys[self.player].AuraInfo[i].rank = tonumber(select(3, sfind(spellRank, "(%d+)")))
 			end
 		end
 	end
+-- Toyota
 end
 
 -- GetSelf
@@ -432,9 +412,9 @@ end
 function mod:SendSelf()
 	if (not self.initialized) then
 		self:ScanSpells()
-		if (not self.initialized) then
-			return
-		end
+		--if (not self.initialized) then
+			--return
+		--end
 	end
 
 	local s = self:GetSelf() .. "@"
@@ -499,6 +479,12 @@ function mod:SendSelf()
 	s = s .. "@" .. self:GetAuraAssignment()
 
 	self:SendMessage("ASELF "..s)
+	
+	if bm.db.profile.freeassign == true then
+		self:SendMessage("FREEASSIGN YES")
+	else
+		self:SendMessage("FREEASSIGN NO")
+	end
 end
 
 -- SendSymCount
@@ -561,15 +547,14 @@ end
 function mod:Announce()
 	self:SendMessage("ZOMG")								-- Let's other ZOMGBuffs users that this is not really PallyPower
 	self:SendMessage("REQ")
-	self:SendMessage("FREEASSIGN YES")
 	self:SendSelf()
 end
 
 -- OnModuleEnable
 function mod:OnModuleEnable()
 	bm = ZOMGBlessingsManager
-
 	self.player = UnitName("player")
+	self:ScanSpells()
 	if (not PallyPower and bm) then
 		self.AllPallys = {}
 		self.player = UnitName("player")
@@ -587,5 +572,3 @@ function mod:OnModuleDisable()
 	self.player = nil
 	self.wasInGroup = nil
 end
-
-bm = ZOMGBlessingsManager
