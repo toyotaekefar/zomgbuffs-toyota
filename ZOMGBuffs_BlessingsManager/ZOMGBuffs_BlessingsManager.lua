@@ -64,6 +64,46 @@ local function setOption(v, n)
 	man.db.profile[v] = n
 end
 
+-- Toyota
+local function setFreeassign(v, n)
+	man.db.profile[v] = n
+	if man.db.profile.freeassign then
+		man:SendMessage("FREEASSIGN YES")
+	else
+		man:SendMessage("FREEASSIGN NO")
+	end
+end
+
+local lastZOMG
+local ppPrefix = "PLPWR"
+
+function man:SendMessage(msg)
+	local dist
+	if (select(2, IsInInstance()) == "pvp") then
+		dist = "BATTLEGROUND"
+	elseif (GetNumRaidMembers() > 0) then
+		dist = "RAID"
+	elseif (GetNumPartyMembers() > 0) then
+		dist = "PARTY"
+	end
+	if (dist) then
+		if (_G.ChatThrottleLib) then
+			if ((lastZOMG or 0) < GetTime() - 15) then
+				lastZOMG = GetTime()
+				_G.ChatThrottleLib:SendAddonMessage("NORMAL", ppPrefix, "ZOMG", dist)
+			end
+			_G.ChatThrottleLib:SendAddonMessage("NORMAL", ppPrefix, msg, dist)
+		else
+			if ((lastZOMG or 0) < GetTime() - 15) then
+				lastZOMG = GetTime()
+				SendAddonMessage(ppPrefix, "ZOMG", dist)
+			end
+			SendAddonMessage(ppPrefix, msg, dist)
+		end
+	end
+end
+-- Toyota
+
 man.consoleCmd = L["Manager"]
 man.options = {
 	type = "group",
@@ -230,6 +270,17 @@ man.options = {
 				},
 			},
 		},
+-- Toyota
+		freeassign = {
+			type = "toggle",
+			name = L["Free Assign"],
+			desc = L["Free Assign Desc"],
+			get = getOption,
+			set = setFreeassign,
+			passValue = "freeassign",
+			order = 202,
+			},
+-- Toyota
 	},
 }
 man.moduleOptions = man.options
@@ -316,6 +367,9 @@ function man:OnModuleInitialize()
 		groups = 5,
 		greyout = true,
 		showexceptions = true,
+-- Toyota
+		freeassign = false,
+-- Toyota
 	} )
 	z:RegisterChatCommand({"/zomgman", "/zomgmanager", "/zomgbm"}, self.options)
 	self.OnMenuRequest = self.options
@@ -2692,6 +2746,9 @@ function man:GiveTemplate(name, quiet, playerRequested, retry)
 			if (ZOMGBlessingsPP) then
 				-- PallyPower assignments are broadcast over the RAID/PARTY addon channels, instead of via whisper, so always send them
 				ZOMGBlessingsPP:GiveTemplate(name, pala.template)
+				-- Toyota
+				ZOMGBlessingsPP:GiveTemplateAura(name, pala.aura)
+				-- Toyota
 			end
 
 			if (UnitIsConnected(name)) then

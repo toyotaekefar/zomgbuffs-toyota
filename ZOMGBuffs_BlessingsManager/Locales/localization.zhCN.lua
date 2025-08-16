@@ -87,6 +87,8 @@ L:RegisterTranslations("zhCN", function() return
 将当前的祝福配置重新群发一遍，用在某人掉线重新登录魔兽这样的情况上。
 
 ]=],
+	["Free Assign"] = "自由配置",
+	["Free Assign Desc"] = "允许其他非团队领袖/助理人员更改你的祝福配置",
 	HELP_TITLE = "祝福管理器帮助",
 	Highlights = "高亮",
 	["Highlight the selected row and column in the manager"] = "在管理器内高亮所选择的行和列",

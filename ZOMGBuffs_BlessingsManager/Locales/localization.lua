@@ -82,6 +82,8 @@ This will assign paladins present with blessings based on the configured global 
 This will simply re-broadcast the current blessing layout, should anyone need this after a WoW crash for example.\
 \
 ",
+	["Free Assign"] = "Free assignment",
+	["Free Assign Desc"] = "Allow others to change your blessings without being leader/promoted",
 	HELP_TITLE = "Blessing Manager Help",
 	Highlights = "Highlights",
 	["Highlight the selected row and column in the manager"] = "Highlight the selected row and column in the manager",

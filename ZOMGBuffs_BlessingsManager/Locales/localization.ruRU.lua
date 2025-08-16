@@ -6,6 +6,8 @@ L:RegisterTranslations("ruRU", function() return
 }
 --@end-debug@]===]
 {
+	["Free Assign"] = "Свободное назначение",
+	["Free Assign Desc"] = "Разрешить простым игрокам изменять ваши назначения",
 }
 
 end)

@@ -87,6 +87,8 @@ L:RegisterTranslations("zhTW", function() return
 將當前的祝福配置重新群發一遍，用在某人掉線重新登錄魔獸這樣的情況上。
 
 ]=],
+	["Free Assign"] = "自由指派",
+	["Free Assign Desc"] = "允許其他人改變你的祝福設定而不需為隊長/助手",
 	HELP_TITLE = "祝福管理器幫助",
 	Highlights = "高亮",
 	["Highlight the selected row and column in the manager"] = "在管理器內高亮所選擇的行和列",

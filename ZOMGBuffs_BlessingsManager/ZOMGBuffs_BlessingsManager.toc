@@ -1,12 +1,12 @@
 ﻿## Interface: 30300
-## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80Blessings Manager|r] by |cFFFF8080Zek|r
+## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80Blessings Manager|r] by |cFF8080FFToyota|r
 ## Notes: ZOMGBuffs, The Blessings Manager allows one raid leader/assistant/paladin to configure all paladin's blessings at once
-## Author: Zek
-## Version: $Revision: 141 $
+## Author: Zek & Toyota
+## Version: $Revision: 142 $
 ## LoadOnDemand: 1
 ## RequiredDeps: ZOMGBuffs
 ## OptionalDeps: Ace2, DewdropLib
-## X-Curse-Packaged-Version: r156
+## X-Curse-Packaged-Version: r157
 ## X-Curse-Project-Name: ZOMGBuffs
 ## X-Curse-Project-ID: zomgbuffs
 ## X-Curse-Repository-ID: wow/zomgbuffs/mainline

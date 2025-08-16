@@ -84,6 +84,8 @@ Generiert eine automatische Segen Einteilung f체r alle anwesenden Paladine, abh�
 
 |cFFFFFFFFSyncronosieren-Schaltfl채che|r
 Syncronisiert bzw. sendet die aktuelle Segen Einteilung erneut. Wichtig nach einem Absturz von WoW, Verbindungsabbr체chen, etc.]=],
+	["Free Assign"] = "Freie Zuteilung",
+	["Free Assign Desc"] = "Erlaubt anderen Spielern, Deine Segenzuteilung zu ver채ndern, ohne Gruppenleiter oder Schlachtzug-Assistent zu sein.",
 	HELP_TITLE = "Segen Manager Hilfe",
 	Highlights = "Hervorhebungen",
 	["Highlight the selected row and column in the manager"] = "Hebe die ausgew채hlten Spalten und Zeilen im Manager hervor",
