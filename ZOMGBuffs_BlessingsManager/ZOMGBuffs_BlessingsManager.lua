@@ -24,7 +24,7 @@ local z = ZOMGBuffs
 local man = z:NewModule("ZOMGBlessingsManager")
 ZOMGBlessingsManager = man
 
-z:CheckVersion("$Revision: 157 $")
+z:CheckVersion("$Revision: 218 $")
 
 do
 	local frostPresence = GetSpellInfo(48263)
@@ -1592,6 +1592,9 @@ function man:ReadPaladinSpec(pala, name)
 		pala.improvedDevotion = LGT:UnitHasTalent(name, (GetSpellInfo(20140)))
 		pala.improvedConcentration = LGT:UnitHasTalent(name, (GetSpellInfo(20254)))
 		pala.improvedRetribution = LGT:UnitHasTalent(name, (GetSpellInfo(31869)))
+-- Toyota
+		pala.auramastery = LGT:UnitHasTalent(name, (GetSpellInfo(31821)))
+-- Toyota
 		pala.spec = {s1, s2, s3}
 		pala.gotCapabilities = true
 		pala.canEdit = true
@@ -2573,14 +2576,23 @@ function man:AssignAurasToPaladins()
 		if (pala.improvedRetribution and wants.RETRIBUTION) then
 			score = score + 1
 		end
-		tinsert(scores, format("%d,%s", score, palaName))
+-- Toyota
+		local ascore = 1
+		if pala.auramastery then
+			ascore = ascore - 1
+		end
+		tinsert(scores, format("%d,%d,%s", score, ascore, palaName))
+-- Toyota
 	end
 	sort(scores)
-
 	-- Now iterate from worst to best assigning any non-talent dependant auras
-	local list = new("SHADOW", "FROST", "FIRE", "CRUSADER")
+-- Toyota
+	local list = new("SHADOW", "FROST", "FIRE")
+-- Toyota
 	for i,combo in ipairs(scores) do
-		local score, palaName = strsplit(",", combo)
+-- Toyota	
+		local score, ascore, palaName = strsplit(",", combo)
+-- Toyota
 		local pala = self.pala[palaName]
 		assert(pala)
 
@@ -2595,7 +2607,9 @@ function man:AssignAurasToPaladins()
 
 	-- Now iterate from worst to best assigning the talent dependant auras we have remaining
 	for i,combo in ipairs(scores) do
-		local score, palaName = strsplit(",", combo)
+-- Toyota
+		local score, ascore, palaName = strsplit(",", combo)
+-- Toyota
 		local pala = self.pala[palaName]
 		assert(pala)
 
@@ -2612,6 +2626,29 @@ function man:AssignAurasToPaladins()
 			wants.RETRIBUTION = nil
 		end
 	end
+	
+-- Toyota
+	for palaName,pala in pairs(self.pala) do
+		if (not pala.aura) then
+			if wants.DEVOTION then
+				pala.aura = "DEVOTION"
+				wants.DEVOTION = nil
+
+			elseif wants.CONCENTRATION then
+				pala.aura = "CONCENTRATION"
+				wants.CONCENTRATION = nil
+
+			elseif wants.RETRIBUTION then
+				pala.aura = "RETRIBUTION"
+				wants.RETRIBUTION = nil
+					
+			elseif wants.CRUSADER then
+				pala.aura = "CRUSADER"
+				wants.CRUSADER = nil
+			end
+		end
+	end
+-- Toyota
 
 	-- Finally, re-assign best auras again to any paladins left over without an assignment. Overlaps are fine
 	local cycle = 1
@@ -2746,9 +2783,9 @@ function man:GiveTemplate(name, quiet, playerRequested, retry)
 			if (ZOMGBlessingsPP) then
 				-- PallyPower assignments are broadcast over the RAID/PARTY addon channels, instead of via whisper, so always send them
 				ZOMGBlessingsPP:GiveTemplate(name, pala.template)
-				-- Toyota
+-- Toyota
 				ZOMGBlessingsPP:GiveTemplateAura(name, pala.aura)
-				-- Toyota
+-- Toyota
 			end
 
 			if (UnitIsConnected(name)) then
@@ -3556,6 +3593,12 @@ function man:DrawPaladin(row)
 			PalaIcon(row.title, bicon, (select(3, GetSpellInfo(19746))), true)	-- Interface\\Icons\\Spell_Holy_MindSooth
 			bicon = bicon + 1
 		end
+-- Toyota
+		if ((pala.auramastery or 0) > 0) then
+			PalaIcon(row.title, bicon, (select(3, GetSpellInfo(31821))), true)
+			bicon = bicon + 1
+		end
+-- Toyota
 
 		if (pala.waitingForAck) then
 			row.title.ackWait:Show()
@@ -4059,6 +4102,9 @@ end
 
 -- OnCellClick
 function man:OnCellClick(row, col, button, panel)
+-- Toyota	
+	local shift = IsShiftKeyDown()
+-- Toyota
 	if (button == "RightButton" and not self.configuring and not panel and self.canEdit) then
 		self:UnitContextMenu(row, col)
 	else
@@ -4115,7 +4161,31 @@ function man:OnCellClick(row, col, button, panel)
 				end
 			end
 
-			self:SetCell(row, col, Type, panel)
+-- Toyota
+			if (shift and col < 11) then
+				if Type == "BOW" then
+					for i = 4, 10 do
+						self:SetCell(row, i, Type, panel)
+					end
+					for i = 1, 3 do
+						self:SetCell(row, i, nil, panel)
+					end
+				elseif Type == "BOM" then
+					for i = 1, 7 do
+						self:SetCell(row, i, Type, panel)
+					end
+					for i = 8, 10 do
+						self:SetCell(row, i, nil, panel)
+					end
+				else
+					for i = 1, 10 do
+						self:SetCell(row, i, Type, panel)
+					end
+				end
+			else
+				self:SetCell(row, col, Type, panel)
+			end
+-- Toyota
 			self:DrawAll(panel)
 		end
 	end
@@ -4646,6 +4716,9 @@ function man:OnReceiveCapability(sender, cap)
 		psender.improvedDevotion = cap.improvedDevotion
 		psender.improvedConcentration = cap.improvedConcentration
 		psender.improvedRetribution = cap.improvedRetribution
+-- Toyota		
+		psender.auramastery = cap.auramastery
+-- Toyota
 		self.pala[sender].gotCapabilities = true
 	end
 

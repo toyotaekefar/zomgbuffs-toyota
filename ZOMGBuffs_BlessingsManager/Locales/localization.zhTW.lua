@@ -68,6 +68,7 @@ L:RegisterTranslations("zhTW", function() return
 
 |cFFFFFFFF普通模式|r
 |cFFFFFF80滑鼠左鍵|r點擊一個圖示會為那個職業在那個騎士所擁有的祝福之間迴圈切換。
+|cFFFFFF80Shift+滑鼠左鍵|r點擊一個圖示會為所有職業在那個騎士所擁有的祝福之間迴圈切換。
 |cFFFFFF80滑鼠右鍵|r點擊一個圖示會為單個玩家設立一個例外。意思是說，假設所有的德魯伊都被Buff完強效智慧祝福後，你可能會有一個野德需要Buff力量祝福取代智慧祝福。
 
 |cFFFFFFFF配置模式|r

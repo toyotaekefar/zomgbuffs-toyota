@@ -63,6 +63,7 @@ The list of paladins shows their name along with some relevant information such 
 \
 |cFFFFFFFFNormal Mode|r\
 |cFFFFFF80Left Click|r an icon to cycle through the blessings for that paladin and that class.\
+|cFFFFFF80Shift+Left Click|r an icon to cycle through the blessings for that paladin for all classes.\
 |cFFFFFF80Right Click|r an icon to set an exception for a single player. That is to say, after the druids have been buffed with Greater Blessing of Wisdom for example, you may have a feral druid that requires Blessing of Might instead.\
 \
 |cFFFFFFFFConfigure Mode|r\

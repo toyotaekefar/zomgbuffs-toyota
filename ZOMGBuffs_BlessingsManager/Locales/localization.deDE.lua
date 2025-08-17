@@ -67,6 +67,7 @@ Die Liste der Paladine zeigt ihren Namen und einige relevante Zusatzinformatione
 
 |cFFFFFFFFStandardmodus|r
 |cFFFFFF80Linksklick|r auf ein Symbol um durch die Segen dieses Paladins und dieser Klasse zu wechselnan.
+|cFFFFFF80Shift+Linksklick|r auf ein Symbol um durch die Segen dieses Paladins für alle Klassen zu wechselnan.
 |cFFFFFF80Rechtsklick|r auf ein Symbol um Ausnahmen für einzelne Spieler zu wählen. Hiermit kann man z.B. allen Druiden den großen Segen der Weisheit zuweisen, einem einzenen Wilder Kampf Druide jedoch einen kleinen Segen der Macht.
 
 |cFFFFFFFFKonfigurationsmodus|r

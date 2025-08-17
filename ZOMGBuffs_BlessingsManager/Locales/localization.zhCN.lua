@@ -68,6 +68,7 @@ L:RegisterTranslations("zhCN", function() return
 
 |cFFFFFFFF普通模式|r
 |cFFFFFF80鼠标左键|r点击一个图标会为那个职业在那个骑士所拥有的祝福之间循环切换。
+|cFFFFFF80Shift+鼠标左键|r点击一个图标会为所有职业在那个骑士所拥有的祝福之间循环切换。
 |cFFFFFF80鼠标右键|r点击一个图标会为单个玩家设立一个例外。意思是说，假设所有的德鲁伊都被Buff完强效智慧祝福后，你可能会有一个野德需要Buff力量祝福取代智慧祝福。
 
 |cFFFFFFFF配置模式|r

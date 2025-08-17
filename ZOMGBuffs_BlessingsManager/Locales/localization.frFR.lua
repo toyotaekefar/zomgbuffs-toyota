@@ -59,33 +59,35 @@ L:RegisterTranslations("frFR", function() return
 	Greyouts = "Grisés",
 	Healer = "Soin",
 	Help = "Aide",
-	HELP_TEXT = [=[The Blessings Manager has two modes. The default mode simple shows the current blessings configuration for each paladin in the raid. The configure mode allows you to setup the default blessings per class, regardless of paladins present. These defaults can then be auto assigned by the 'Generate' button when in normal mode.
-
-The list of paladins shows their name along with some relevant information such as available blessings (as icons), talent spec, and ZOMGBuffs version
-
-|cFFFF8080Red Icons|r indicate a conflicting buff. |cFF8080FFBlue Icons|r indicate exceptions for this cell.
-
-|cFFFFFFFFNormal Mode|r
-|cFFFFFF80Left Click|r an icon to cycle through the blessings for that paladin and that class.
-|cFFFFFF80Right Click|r an icon to set an exception for a single player. That is to say, after the druids have been buffed with Greater Blessing of Wisdom for example, you may have a feral druid that requires Blessing of Might instead.
-
-|cFFFFFFFFConfigure Mode|r
-It is important to realise that the order of the blessings in this mode represents how many paladins you may have present in any given raid. Setup correctly you should rarely need to change this configuration. So, assuming you had one paladin in a raid, the auto assigned blessings would be taken from row 1. Two paladins would take from rows 1 and 2 and so on.
-
-|cFFFFFF80Left Click|r an icon to cycle through the blessings for that line and that class.
-
-Mousing over a class with sub-classes defined will expand that class to show the sub-classes. Set these classes up in the same way. Note that the sub-class split window will also open to allow you to move players into their correct sub-classes.
-
-|cFFFFFFFFConfigure Button|r
-This will toggle between the two modes (normal and configure).
-
-|cFFFFFFFFGenerate Button|r
-This will assign paladins present with blessings based on the configured global template, taking into account talents so that paladins with Improved Blessing of Might, for example, will be favored to buff this blessing.
-
-|cFFFFFFFFBroadcast Button|r
-This will simply re-broadcast the current blessing layout, should anyone need this after a WoW crash for example.
-
-]=],
+	HELP_TEXT = "The Blessings Manager has two modes. The default mode simple shows the current blessings configuration for each paladin in the raid. The configure mode allows you to setup the default blessings per class, regardless of paladins present. These defaults can then be auto assigned by the 'Generate' button when in normal mode.\
+\
+The list of paladins shows their name along with some relevant information such as available blessings (as icons), talent spec, and ZOMGBuffs version\
+\
+|cFFFF8080Red Icons|r indicate a conflicting buff.\
+|cFF8080FFBlue Icons|r indicate exceptions for this cell.\
+\
+|cFFFFFFFFNormal Mode|r\
+|cFFFFFF80Left Click|r an icon to cycle through the blessings for that paladin and that class.\
+|cFFFFFF80Shift+Left Click|r an icon to cycle through the blessings for that paladin for all classes.\
+|cFFFFFF80Right Click|r an icon to set an exception for a single player. That is to say, after the druids have been buffed with Greater Blessing of Wisdom for example, you may have a feral druid that requires Blessing of Might instead.\
+\
+|cFFFFFFFFConfigure Mode|r\
+It is important to realise that the order of the blessings in this mode represents how many paladins you may have present in any given raid. Setup correctly you should rarely need to change this configuration. So, assuming you had one paladin in a raid, the auto assigned blessings would be taken from row 1. Two paladins would take from rows 1 and 2 and so on.\
+\
+|cFFFFFF80Left Click|r an icon to cycle through the blessings for that line and that class.\
+\
+Mousing over a class with sub-classes defined will expand that class to show the sub-classes. Set these classes up in the same way. Note that the sub-class split window will also open to allow you to move players into their correct sub-classes.\
+\
+|cFFFFFFFFConfigure Button|r\
+This will toggle between the two modes (normal and configure).\
+\
+|cFFFFFFFFGenerate Button|r\
+This will assign paladins present with blessings based on the configured global template, taking into account talents so that paladins with Improved Blessing of Might, for example, will be favored to buff this blessing.\
+\
+|cFFFFFFFFBroadcast Button|r\
+This will simply re-broadcast the current blessing layout, should anyone need this after a WoW crash for example.\
+\
+",
 	["Free Assign"] = "Assignement libre",
 	["Free Assign Desc"] = "Autoriser les autres à changer vos bénédictions sans être leader/assistant",
 	HELP_TITLE = "Blessing Manager Help",
