@@ -22,7 +22,7 @@ Here's a breakdown of what done:
 2) implemented a function that allows you to clear paladin assignments in ZOMG using the "Clear" button in PP;
 3) added a "Free Assignment" option and functionality in ZOMG, similar to the one in PP (this is disabled by default);
 4) fixed a bug in the automatic generation (using the “Generate” button) of auras for paladins if paladins do not have a talent to improve any aura;
-5) added Shift+LMB functionality, similar to PallyPower, or Shift+scroll to change paladin assignments for all classes (BOM and BOW excesses for individual classes are taken into account);
+5) added Shift+LMB functionality, similar to PallyPower, or Shift+scroll to change paladin assignments for all classes (BoM and BoW excesses for individual classes are taken into account);
 6) added an indicator of the "Aura Mastery" talent-ability in BlessingsManager for paladins who have taken this talent;
 7) added preference logic for assigning paladins with the "Aura Mastery" ability to auras with magic resistance when automatically generating using the “Generate” button.
 
@@ -54,7 +54,7 @@ Esto es lo que hemos hecho:
 2) hemos implementado una función que te permite limpiar las asignaciones de paladín en ZOMG usando el botón "Borrar" en PP;
 3) hemos añadido una opción y funcionalidad de "Asignación libre" en ZOMG, similar a la que tiene PP (esta opción está desactivada por defecto);
 4) corregido un error en la generación automática (usando el botón “Generate”) de auras para paladines cuando éstos no tienen un talento que mejore ninguna aura;
-5) funcionalidad de Shift+clic izquierdo, similar a PallyPower, o Shift+rueda del ratón para cambiar las asignaciones de paladín para todas las clases (se tienen en cuenta los excesos de BOM y BOW para clases individuales);
+5) funcionalidad de Shift+clic izquierdo, similar a PallyPower, o Shift+rueda del ratón para cambiar las asignaciones de paladín para todas las clases (se tienen en cuenta los excesos de BoM y BoW para clases individuales);
 6) un indicador de la habilidad/talento "Maestría en auras" en BlessingsManager para los paladines que hayan tomado este talento;
 7) lógica de preferencia para asignar paladines con la habilidad "Maestría en auras" a auras con resistencia mágica al generar automáticamente mediante el botón “Generate”. 
 
