@@ -2,10 +2,10 @@
 ## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs |rby |cFF8080FFToyota|r
 ## Notes: All in one buffing mod for all classes. Paladin buff generated assignments based on Paladin capabilities and raid member sub-classes (druid tank vs. druid healer etc.). Plus overview of important raid buffs, and instant access rebuff on right click.
 ## Author: Zek & Toyota
-## Version: $Revision: 150 $
+## Version: $Revision: 218 $
 ## SavedVariables: ZOMGBuffsDB
 ## SavedVariablesPerCharacter: ZOMGBuffsPerCharDB
-## X-Curse-Packaged-Version: r157
+## X-Curse-Packaged-Version: r218
 ## X-Curse-Project-Name: ZOMGBuffs
 ## X-Curse-Project-ID: zomgbuffs
 ## X-Curse-Repository-ID: wow/zomgbuffs/mainline
