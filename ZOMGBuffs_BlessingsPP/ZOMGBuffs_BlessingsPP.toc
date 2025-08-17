@@ -2,11 +2,11 @@
 ## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80PallyPower Comms|r] by |cFF8080FFToyota|r
 ## Notes: ZOMGBuffs, Pally Power communications module
 ## Author: Zek & Toyota
-## Version: $Revision: 142 $
+## Version: $Revision: 218 $
 ## LoadOnDemand: 1
 ## RequiredDeps: ZOMGBuffs, ZOMGBuffs_BlessingsManager
 ## OptDeps: Ace2
-## X-Curse-Packaged-Version: r157
+## X-Curse-Packaged-Version: r218
 ## X-Curse-Project-Name: ZOMGBuffs
 ## X-Curse-Project-ID: zomgbuffs
 ## X-Curse-Repository-ID: wow/zomgbuffs/mainline
