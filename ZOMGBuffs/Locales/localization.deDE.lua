@@ -37,6 +37,9 @@ L:RegisterTranslations("deDE", function() return
 	Border = "Rand",
 	["Bought |cFF80FF80%d|cFFFFFF80 %s|r from vendor, you now have |cFF80FF80%d|r"] = "|cFF80FF80%d|cFFFFFF80 %s|r vom Händler gekauft, du besitzt jetzt |cFF80FF80%d|r",
 	["Buff Pets"] = "Begleiter buffen",
+-- Toyota
+	["Greater Blessings for Pets"] = "Größere Segnungen für Haustiere",
+-- Toyota
 	["Buff Target"] = "Ziel buffen",
 	["Buff Timer"] = "Stärkungszauber Timer",
 	["Buff times over this number of minutes will not be shown"] = "Stärkungszauberdauer über dieser Anzahl von Minuten werden nicht dargestellt",
@@ -98,7 +101,7 @@ L:RegisterTranslations("deDE", function() return
 	Group = "Gruppe",
 	["Group %d"] = "Gruppe %d",
 	["Group Number"] = "Gruppennummer",
-	HINT = "|cffeda55fKlick|r zum wechseln auf automatisches Wirken, |cffeda55fRechtsklick|r für Optionen, |cffeda55fKlick|r auf Symbol zum ändern, |cffeda55fUmschalt-Klick|r um Item von Selbstzauber Vorlage zu entfernen",
+	HINT = "|cffeda55fLinksklick|r zum wechseln auf automatisches Wirken, |cffeda55fRechtsklick|r für Optionen, |cffeda55fKlick|r auf Symbol zum ändern, |cffeda55fUmschalt-Klick|r um Item von Selbstzauber Vorlage zu entfernen",
 	HINTBM = "|cffeda55fKlick|r um automatisches Zauberwirken zu aktivieren/deaktivieren, |cffeda55fAlt-Klick|r um den Segen Manager zu öffnen/schließen, |cffeda55fRechtsklick|r für Optionen, |cffeda55fKlick|r auf eine der Einstellungen um sie zu ändern, |cffeda55fSchift-Klick|r auf eine der Einstellungen um sie von der Self-Buff Vorlage zu entfernen",
 	["How much mana should you have before considering auto buffing"] = "Wieviel Mana muss vorhanden sein, bevor das Automatische Buffen möglich ist",
 	Icon = "Symbol",

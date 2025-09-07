@@ -37,6 +37,8 @@ L:RegisterTranslations("koKR", function() return
 	["<new name>"] = "<새 이름>",
 	Party = "파티",
 	["<template name>"] = "<템플릿 이름>",
+	["Greater Blessings for Pets"] = "소환수에 대한 위대한 축복",
+	["Don't skimp on reagents and buff pets only with greater blessings."] = "소환수에게는 자원을 아끼지 말고, 오직 위대한 축복만으로 강화하세요",
 }
 
 end)

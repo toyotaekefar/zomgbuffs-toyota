@@ -3,7 +3,7 @@ local L = LibStub("AceLocale-2.2"):new("ZOMGBuffs")
 L:RegisterTranslations("enUS", function() return {
 	["TITLE"]				= "ZOMGBuffs",
 	["TITLECOLOUR"]			= "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r",
-	["HINT"]				= "|cffeda55fClick|r to toggle auto-casting, |cffeda55fRight-Click|r for options, |cffeda55fClick|r item to change, |cffeda55fShift-Click|r item to remove from self buffs template",
+	["HINT"]				= "|cffeda55fLeft-Click|r to toggle auto-casting, |cffeda55fRight-Click|r for options, |cffeda55fClick|r item to change, |cffeda55fShift-Click|r item to remove from self buffs template",
 	["HINTBM"]				= "|cffeda55fClick|r to toggle auto-casting, |cffeda55fAlt-Click|r to toggle Blessings Manager, |cffeda55fRight-Click|r for options, |cffeda55fClick|r item to change, |cffeda55fShift-Click|r item to remove from self buffs template",
 	["PORTALZ_HOTKEY"]	= "ZOMGPortalz Hotkey",
 	["Auto-casting %s"]		= true,
@@ -215,6 +215,10 @@ L:RegisterTranslations("enUS", function() return {
 	["Don't auto buff when you have Spirit Tap, so you can maximise your regeneration"] = true,
 	["Buff Pets"]			= true,
 	["Perform extra checks for pets in case any missed the group buffs when they were done"] = true,
+-- Toyota
+	["Greater Blessings for Pets"]			= true,
+	["Don't skimp on reagents and buff pets only with greater blessings."] = true,
+-- Toyota
 	["Position the notification area"] = true,
 	["Learning"]			= true,
 	["Setup spell learning behaviour"] = true,

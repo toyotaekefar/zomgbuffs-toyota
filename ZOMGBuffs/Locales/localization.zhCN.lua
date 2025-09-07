@@ -109,6 +109,8 @@ E-mail：{X-Email}
 	["Group %d"] = "队伍%d",
 	["Group Number"] = "队伍编号",
 	HINT = "|cffeda55f鼠标左键|r开关自动施法，|cffeda55f鼠标右键|r开启选项菜单，|cffeda55f点击|r项目以修改，|cffeda55fShift点击|r项目可以将其从自我Buff模板中删除",
+	["Greater Blessings for Pets"] = "宠物的 [伟大祝福]",
+	["Don't skimp on reagents and buff pets only with greater blessings."] = "不要在材料上省钱，只用[伟大祝福]来强化宠物",
 	HINTBM = "|cffeda55f鼠标左键|r开关自动施法，|cffeda55fAlt点击|r开关祝福管理器|cffeda55f鼠标右键|r开启选项菜单，|cffeda55f点击|r 项目以修改，|cffeda55fShift点击|r项目可以将其从自我Buff模板中删除",
 	["How much mana should you have before considering auto buffing"] = "只有法力大于这个值时才会自动Buff",
 	Icon = "图标",

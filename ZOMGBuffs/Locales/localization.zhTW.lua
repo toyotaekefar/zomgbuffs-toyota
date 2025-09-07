@@ -107,6 +107,8 @@ E-mail：{X-Email}
 	["Group %d"] = "隊伍%d",
 	["Group Number"] = "隊伍編號",
 	HINT = "|cffeda55f滑鼠左鍵|r開關自動施法，|cffeda55f滑鼠右鍵|r開啟選項功能表，|cffeda55f點擊|r專案以修改，|cffeda55fShift點擊|r項目可以將其從自我Buff範本中刪除",
+	["Greater Blessings for Pets"] = "寵物的 [偉大祝福]",
+	["Don't skimp on reagents and buff pets only with greater blessings."] = "不要在材料上省錢，只用[偉大祝福]來強化寵物",
 	HINTBM = "|cffeda55f滑鼠左鍵|r開關自動施法，|cffeda55fAlt點擊|r開關祝福管理器|cffeda55f滑鼠右鍵|r開啟選項功能表，|cffeda55f點擊|r 專案以修改，|cffeda55fShift點擊|r項目可以將其從自我Buff範本中刪除",
 	["How much mana should you have before considering auto buffing"] = "只有法力大於這個值時才會自動Buff",
 	Icon = "圖示",
