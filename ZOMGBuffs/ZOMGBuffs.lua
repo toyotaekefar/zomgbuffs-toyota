@@ -689,6 +689,19 @@ z.options = {
 					hidden = notRebuffer,
 					order = 200,
 				},
+-- Toyota
+				petsGreater = {
+					type = 'toggle',
+					name = L["Greater Blessings for Pets"],
+					desc = L["Don't skimp on reagents and buff pets only with greater blessings."],
+					disabled = function() return not z.db.char.buffpets end,
+					get = getPCOption,
+					set = setPCOption,
+					passValue = "petsgreater",
+					hidden = notRebuffer,
+					order = 201,
+				},
+-- Toyota
 			},
 		},
 		learn = {
@@ -4681,7 +4694,9 @@ function z:SetKeyBindings()
 end
 
 -- OnClick
-function z:OnClick()
+-- Toyota
+function z:OnClick(button)
+-- Toyota
 	if (self:IsDisabled()) then
 		return
 	end
@@ -4691,7 +4706,12 @@ function z:OnClick()
 			bm:ToggleFrame()
 		end
 	else
-		self.db.profile.enabled = not self.db.profile.enabled
+-- Toyota
+		if (button == "LeftButton") then
+			self.db.profile.enabled = not self.db.profile.enabled
+			self:Print(L["Auto-casting %s"], (self.db.profile.enabled and L["|cFF80FF80Enabled"]) or L["|cFFFF8080Disabled"])
+		end
+-- Toyota
 		if (self.db.profile.enabled) then
 			self:RequestSpells()
 		else
@@ -4702,8 +4722,6 @@ function z:OnClick()
 		if (not self.icon:GetAttribute("spell") and not self.icon:GetAttribute("item")) then
 			self:SetStatusIcon()
 		end
-
-		self:Print(L["Auto-casting %s"], (self.db.profile.enabled and L["|cFF80FF80Enabled"]) or L["|cFFFF8080Disabled"])
 	end
 end
 
@@ -5172,6 +5190,9 @@ function z:OnInitialize()
 		learnooc = true,
 		learncombat = true,
 		loadraidbuffmodule = true,
+-- Toyota
+		petsgreater = false,
+-- Toyota
 	})
 
 	self:RegisterChatCommand("/zomg", self.options, "ZOMGBUFFS")
