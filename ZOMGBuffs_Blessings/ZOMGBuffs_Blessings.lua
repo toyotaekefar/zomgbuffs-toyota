@@ -603,9 +603,23 @@ function zb:CheckBuffs()
 										if (not otherBuffs or not otherBuffs[needType]) then
 											if (not z:IsBlacklisted(unitname)) then
 												-- Has noone else's buff of same type
-												singleNeedUnit = unitid
-												singleNeedSpell = z:GetBlessingFromType(needType)
-												singleNeedType = needType
+-- Toyota
+												local singleSpell, classSpell = z:GetBlessingFromType(needType)
+												if (gotSymbols and z.db.char.petsgreater and not skipGreater) then
+													limitToClass = masterClass
+													ltcSpell = classSpell
+													ltcType = needType
+													ltcUnits = new()
+													if (UnitLevel(unitid) >= 50) then
+														ltcUnits[unitid] = true
+														classNeedCount = 1
+													end
+												else
+													singleNeedUnit = unitid
+													singleNeedSpell = z:GetBlessingFromType(needType)
+													singleNeedType = needType
+												end
+-- Toyota
 												del(otherBuffs)
 												break
 											end

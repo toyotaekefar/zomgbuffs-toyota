@@ -1,14 +1,14 @@
 ﻿## Interface: 30300
-## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80Blessings|r] by |cFFFF8080Zek|r
+## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80Blessings|r] by |cFF8080FFToyota|r
 ## Notes: ZOMGBuffs, Paladin Buffing Module
-## Author: Zek
-## Version: $Revision: 141 $
+## Author: Zek & Toyota
+## Version: $Revision: 219 $
 ## LoadOnDemand: 1
 ## RequiredDeps: ZOMGBuffs
 ## OptionalDeps: Ace2, DewdropLib, FuBarPlugin-2.0, TabletLib, LibSharedMedia-3.0
 ## X-ZOMGBuffs: yes
 ## X-Classes: PALADIN
-## X-Curse-Packaged-Version: r156
+## X-Curse-Packaged-Version: r219
 ## X-Curse-Project-Name: ZOMGBuffs
 ## X-Curse-Project-ID: zomgbuffs
 ## X-Curse-Repository-ID: wow/zomgbuffs/mainline
