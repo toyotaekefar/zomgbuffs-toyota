@@ -232,6 +232,8 @@ L:RegisterTranslations("enUS", function() return {
 	["Clear talent cache to force refresh"] = true,
 	["Ignore Absent"]		= true,
 	["If players are offline, AFK or in another instance, count them as being present and buff everyone else"] = true,
+	["Ignore 6-8 Groups"]		= true,
+	["If players are in groups 6, 7, or 8, count them as being present and buff everyone else"] = true,
 	["Singles Always"]		= true,
 	["Only use single target buffs"] = true,
 	["Singles in BGs"]		= true,
