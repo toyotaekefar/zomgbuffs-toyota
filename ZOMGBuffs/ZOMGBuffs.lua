@@ -188,7 +188,9 @@ if (select(4, GetBuildInfo()) >= 40000) then
 	z.manaClasses.HUNTER = nil
 end
 
-z.blessingColour = {BOK = "|cFFFF80FF", BOM = "|cFFFF5050", BOL = "|cFF80FF80", BOS = "|cFFFFA0A0", BOW = "|cFF8080FF", SAC = "|cFFFF0000", SAN = "|cFF4040C0", BOF = "|cFFFFCC19", BOP = "|cFF00FF00"}
+z.blessingColour = {BOK = "|cFFFF80FF", BOM = "|cFFFF5050", BOL = "|cFF80FF80", BOS = "|cFFFFA0A0", BOW = "|cFF8080FF", SAC = "|cFFFF0000", SAN = "|cFF4040C0", BOF = "|cFFFFCC19"}
+--Toyota
+--, BOP = "|cFF00FF00"}
 do
 	local allBuffs = {
 		{opt = "mark",	ids = {26990, 26991},	class = "DRUID",	type = "MARK", runescroll = true},		-- Mark of the Wild, Gift of the Wild
@@ -251,7 +253,8 @@ do
 		{id = 25898, type = "BOK", dur = 30,	class = true},						-- Greater Blessing of Kings
 		{id = 20911, type = "SAN", dur = 5,					short = L["Sanctuary"]}, -- Blessing of Sanctuary
 		{id = 25899, type = "SAN", dur = 30,	class = true},						-- Greater Blessing of Sanctuary
-		{id = 10278, type = "BOP", dur = 0.2, noTemplate = true},					-- Hand of Protection
+		--Toyota
+		--{id = 10278, type = "BOP", dur = 0.2, noTemplate = true},					-- Hand of Protection
 	}
 
 	z.blessings = {}
@@ -284,7 +287,7 @@ do
 	end
 end
 
-z.version = tonumber(string.sub("$Revision: 152 $", 12, -3)) or 1
+z.version = tonumber(string.sub("$Revision: 219a $", 12, -3)) or 1
 z.versionCompat = 65478 - 82090				-- 65478 is the compat version check
 z.title = L["TITLE"]
 z.titleColour = L["TITLECOLOUR"]
@@ -560,6 +563,16 @@ z.options = {
 					set = setOptionUpdate,
 					passValue = "ignoreabsent",
 					order = 105,
+				},
+				ignoresixeight = {
+					type = 'toggle',
+					name = L["Ignore 6-8 Groups"],
+					desc = L["If players are in groups 6, 7, or 8, count them as being present and buff everyone else"],
+					hidden = notRebuffer,
+					get = getOption,
+					set = setOptionUpdate,
+					passValue = "ignoresixeight",
+					order = 106,
 				},
 				skippvp = {
 					type = 'toggle',
@@ -5139,6 +5152,7 @@ function z:OnInitialize()
 		waitforraid = 0,				-- Wait for % of raid
 		waitforclass = true,			-- Wait for class/group to arrive
 		ignoreabsent = true,			-- Ignore absent players (offline, afk, out of zone)
+		ignoresixeight = true,			-- Ignore players in groups 6, 7, and 8
 		channel = "Raid",				-- Report channel
 		skippvp = true,					-- Don't directly buff PVP players
 		singlesInBG = true,				-- Don't use greater blessings/class buffs in battlegrounds
