@@ -2,13 +2,13 @@
 ## Title: |cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFFBuffs|r [|cFF80FF80Raid Buffer|r] by |cFFFF8080Zek|r
 ## Notes: ZOMGBuffs, Group Buffing Module
 ## Author: Zek
-## Version: $Revision: 141 $
+## Version: $Revision: 219a $
 ## LoadOnDemand: 1
 ## RequiredDeps: ZOMGBuffs
 ## X-ZOMGBuffs: yes
 ## X-Classes: PRIEST, DRUID, MAGE
 ## X-Classes-Optional: PALADIN, SHAMAN, WARLOCK, WARRIOR, ROGUE, DEATHKNIGHT
-## X-Curse-Packaged-Version: r156
+## X-Curse-Packaged-Version: r219a
 ## X-Curse-Project-Name: ZOMGBuffs
 ## X-Curse-Project-ID: zomgbuffs
 ## X-Curse-Repository-ID: wow/zomgbuffs/mainline

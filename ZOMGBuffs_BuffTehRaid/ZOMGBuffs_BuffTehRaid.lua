@@ -14,7 +14,7 @@ local z = ZOMGBuffs
 local zg = z:NewModule("ZOMGBuffTehRaid")
 ZOMGBuffTehRaid = zg
 
-z:CheckVersion("$Revision: 152 $")
+z:CheckVersion("$Revision: 219a $")
 
 local new, del, deepDel, copy = z.new, z.del, z.deepDel, z.copy
 local InCombatLockdown	= InCombatLockdown
@@ -588,11 +588,11 @@ function zg:GetBuffedMembers()
 		anyBlacklisted = anyBlacklisted or z:IsBlacklisted(unitname)
 		totalMembers = totalMembers + 1
 		totals = totals + 1
-
 		if (dbGroups[grp] or notInRaid) then
 			local pvpBlock = (z.db.profile.skippvp and UnitIsPVP(unitid)) and not UnitIsPVP("player")
 			local present = UnitIsConnected(unitid) and UnitCanAssist("player", unitid) and not pvpBlock
 			local absent						-- They're not in zone, afk, or offline
+			local sixeight						-- They're in 6-8 groups
 			if (not present and z.db.profile.ignoreabsent and z.db.profile.waitforclass) then
 				if (pvpBlock) then
 					absent = true
@@ -600,6 +600,12 @@ function zg:GetBuffedMembers()
 					absent = true
 				elseif (UnitIsAFK(unitid)) then
 					absent = true
+				end
+			end
+			
+			if (not present and z.db.profile.ignoresixeight) then
+				if (grp == 6 or grp == 7 or grp == 8) then
+					sixeight = true
 				end
 			end
 
@@ -648,7 +654,7 @@ function zg:GetBuffedMembers()
 					del(foundBuffs)
 				end
 
-			elseif (absent) then
+			elseif (absent or sixeight) then
 				totalPresent = totalPresent + 1
 				for code,info in pairs(self.buffs) do
 					temp[code] = (temp[code] or 0) + 1
@@ -656,7 +662,6 @@ function zg:GetBuffedMembers()
 			end
 		end
 	end
-
 	return temp, totals, minTimeLeft, totalPresent / totalMembers, anyBlacklisted
 end
 
