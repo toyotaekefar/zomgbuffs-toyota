@@ -22,7 +22,7 @@ local z = ZOMGBuffs
 local zb = z:NewModule("ZOMGBlessings")
 ZOMGBlessings = zb
 
-z:CheckVersion("$Revision: 147 $")
+z:CheckVersion("$Revision: 219a $")
 
 local new, del, deepDel, copy = z.new, z.del, z.deepDel, z.copy
 local classOrder, classIndex = z.classOrder, z.classIndex
@@ -445,6 +445,12 @@ function zb:CheckBuffs()
 					end
 				end
 			end
+			
+			if (not present and z.db.profile.ignoresixeight) then
+				if (subgroup == 6 or subgroup == 7 or subgroup == 8) then
+					sixeight = true
+				end
+			end
 
 			if (present) then
 				if (not UnitIsDeadOrGhost(unitid)) then
@@ -459,7 +465,7 @@ function zb:CheckBuffs()
 						self.outOfRange[unitname] = true
 					end
 				end
-			elseif (absent) then
+			elseif (absent or sixeight) then
 				if (UnitIsConnected(unitid) and not IsSpellInRange(singleRangeTest, unitid) == 1) then
 					if (not self.outOfRange) then
 						self.outOfRange = new()
