@@ -24,7 +24,7 @@ local z = ZOMGBuffs
 local man = z:NewModule("ZOMGBlessingsManager")
 ZOMGBlessingsManager = man
 
-z:CheckVersion("$Revision: 218 $")
+z:CheckVersion("$Revision: 219b $")
 
 do
 	local frostPresence = GetSpellInfo(48263)
@@ -339,7 +339,7 @@ local function DefaultTemplate()
 		PALADIN	= {"BOW", "BOK", "SAN", "BOM"},
 		PRIEST	= {"BOW", "BOK", "SAN"},
 		MAGE	= {"BOW", "BOK", "SAN"},
-		WARLOCK	= {"BOW", "BOK", "SAN"},
+		WARLOCK	= {"BOW", "BOK", "SAN", "BOM"},
 		subclass = DefaultTemplateSubclass(),
 	}
 end
@@ -4174,7 +4174,8 @@ function man:OnCellClick(row, col, button, panel)
 					for i = 1, 7 do
 						self:SetCell(row, i, Type, panel)
 					end
-					for i = 8, 10 do
+					self:SetCell(row, 10, Type, panel)
+					for i = 8, 9 do
 						self:SetCell(row, i, nil, panel)
 					end
 				else
