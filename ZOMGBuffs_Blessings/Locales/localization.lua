@@ -63,4 +63,9 @@ L:RegisterTranslations("enUS", function() return {
 	["Removed %s"]										= true,
 	["Felguard"]										= true,
 	["Voidwalker"]										= true,
+	["PET_IMP"]											= "Imp",
+	["PET_FELHUNTER"]									= "Felhunter",
+	["PET_SUCCUBUS"]									= "Succubus",
+	["PET_FELGUARD"]									= "Felguard",
+	["PET_VOIDWALKER"]									= "Voidwalker",
 } end)

@@ -1,11 +1,6 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGBlessings")
 
-L:RegisterTranslations("frFR", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
+L:RegisterTranslations("frFR", function() return {
 	["5-Man"] = "Instance à 5",
 	["Adjust how faded the exception icons are when the players have plenty of time left on their buffs"] = "Ajuster comment l'icône d'exception s'efface quand les joueurs ont encore plein de temps restant pour leur buffs",
 	Anchor = "Ancrage",
@@ -67,6 +62,10 @@ L:RegisterTranslations("frFR", function() return
 	["You can no longer do certain buffs as defined in your template, these have been replaced."] = "Vous ne pouvez plus lancer certains des buffs définis dans votre modèle, ils ont été remplacés.",
 	ZOMG = "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|r",
 	["ZOMG Exceptions"] = "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFF Exceptions|r",
-}
-
-end)
+	["Faded Alpha"]                                         = "Transparence (fondu)",
+    ["PET_IMP"]                                             = "Diablotin",
+    ["PET_FELHUNTER"]                                       = "Chasseur corrompu",
+    ["PET_SUCCUBUS"]                                        = "Succube",
+    ["PET_FELGUARD"]                                        = "Gangregarde",
+    ["PET_VOIDWALKER"]                                      = "Marcheur du Vide",
+} end)

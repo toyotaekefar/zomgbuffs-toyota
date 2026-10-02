@@ -1,12 +1,7 @@
 ﻿local L = LibStub("AceLocale-2.2"):new("ZOMGBlessings")
 
-L:RegisterTranslations("zhCN", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
-	["5-Man"] = "5人",
+L:RegisterTranslations("zhCN", function() return {
+    ["5-Man"] = "5人",
 	["Adjust how faded the exception icons are when the players have plenty of time left on their buffs"] = "调整当玩家的Buff还有很多剩余时间时，例外图标的透明度",
 	Anchor = "锚点",
 	Autosave = "自动保存",
@@ -68,6 +63,9 @@ L:RegisterTranslations("zhCN", function() return
 	["You can no longer do certain buffs as defined in your template, these have been replaced."] = "在你的模板里有些Buff不能再用了，它们已经被替换掉了。",
 	ZOMG = "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|r",
 	["ZOMG Exceptions"] = "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFF例外|r",
-}
-
-end)
+    ["PET_IMP"]                                             = "小鬼",
+    ["PET_FELHUNTER"]                                       = "地狱猎犬",
+    ["PET_SUCCUBUS"]                                        = "魅魔",
+    ["PET_FELGUARD"]                                        = "恶魔卫士",
+    ["PET_VOIDWALKER"]                                      = "虚空行者",
+} end)

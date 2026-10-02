@@ -1,11 +1,6 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGBlessings")
 
-L:RegisterTranslations("deDE", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
+L:RegisterTranslations("deDE", function() return {
 	["5-Man"] = "5-Mann",
 	Anchor = "Anker",
 	Autosave = "Automatisch speichern",
@@ -58,6 +53,19 @@ L:RegisterTranslations("deDE", function() return
 	["You can no longer do certain buffs as defined in your template, these have been replaced."] = "Du kannst bestimmte Stärkungszauber nicht mehr wie in deiner Vorlage festgelegt wirken, da sie ausgetauscht worden sind.",
 	ZOMG = "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|r",
 	["ZOMG Exceptions"] = "|cFFFF8080Z|cFFFFFF80O|cFF80FF80M|cFF8080FFG|cFEFFFFFF Ausnahmen|r",
-}
-
-end)
+	["Adjust how faded the exception icons are when the players have plenty of time left on their buffs"] = "Anpassen, wie stark die Ausnahme-Symbole ausgeblendet werden, wenn die Spieler noch reichlich Zeit auf ihren Stärkungszaubern haben",
+	["Faded Alpha"]                                         = "Transparenz (Ausgeblendet)",
+	["How long before buff expires to rebuff"]              = "Wie lange vor Ablauf des Stärkungszaubers neu gestärkt werden soll",
+	["How many minutes before greater blessing expires to rebuff"] = "Wie viele Minuten vor Ablauf eines Großen Segens neu gestärkt werden soll",
+	["How many minutes before single blessing expires to rebuff"] = "Wie viele Minuten vor Ablauf eines einfachen Segens neu gestärkt werden soll",
+	["Icons that show at start of combat for easy rebuffing during long fights"] = "Symbole, die zu Beginn des Kampfes für einfaches Nachbuffen bei langen Kämpfen angezeigt werden",
+	["Minimum"]                                             = "Minimum",
+	["Modified template: %s: %s"]                           = "Modifizierte Vorlage: %s: %s",
+	["Options"]                                             = "Optionen",
+	["Show single buff exception icons when in combat for easy rebuffing"] = "Ausnahme-Symbole für einfache Stärkungszauber im Kampf für einfaches Nachbuffen anzeigen",
+    ["PET_IMP"]                                             = "Wichtel",
+    ["PET_FELHUNTER"]                                       = "Teufelsjäger",
+    ["PET_SUCCUBUS"]                                        = "Sukkubus",
+    ["PET_FELGUARD"]                                        = "Teufelswache",
+    ["PET_VOIDWALKER"]                                      = "Leerwandler",
+} end)
