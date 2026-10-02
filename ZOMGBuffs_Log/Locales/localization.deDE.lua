@@ -19,6 +19,7 @@ L:RegisterTranslations("deDE", function() return
 	Log = "Log",
 	["Log behaviour"] = "Logverhalten",
 	Merge = "Zusammenführen",
+	["Merge similar entries within 15 seconds. Avoids confusion with cycling through buffs to get to desired one giving multiple log entries."] = "Ähnliche Einträge innerhalb von 15 Sekunden zusammenführen. Vermeidet Verwirrung durch mehrfache Einträge beim Durchwechseln von Stärkungszaubern.",
 	Open = "Öffnen",
 	["Remotely changed"] = "Entfernt Verändert",
 	["Saved template '%s'"] = "'%s' Template gespeichert",
