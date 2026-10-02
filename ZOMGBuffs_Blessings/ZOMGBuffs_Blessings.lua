@@ -22,7 +22,7 @@ local z = ZOMGBuffs
 local zb = z:NewModule("ZOMGBlessings")
 ZOMGBlessings = zb
 
-z:CheckVersion("$Revision: 219a $")
+z:CheckVersion("$Revision: 220 $")
 
 local new, del, deepDel, copy = z.new, z.del, z.deepDel, z.copy
 local classOrder, classIndex = z.classOrder, z.classIndex
@@ -32,6 +32,7 @@ local GetSpellCooldown	= GetSpellCooldown
 local UnitBuff			= UnitBuff
 local UnitCanAssist		= UnitCanAssist
 local UnitClass			= UnitClass
+local UnitCreatureFamily = UnitCreatureFamily
 local UnitIsConnected	= UnitIsConnected
 local UnitInParty		= UnitInParty
 local UnitIsPVP			= UnitIsPVP
@@ -451,7 +452,7 @@ function zb:CheckBuffs()
 					sixeight = true
 				end
 			end
-
+	  
 			if (present) then
 				if (not UnitIsDeadOrGhost(unitid)) then
 					if (IsSpellInRange(singleRangeTest, unitid) == 1) then
@@ -595,7 +596,15 @@ function zb:CheckBuffs()
 			if (unitclass == "PET") then
 				if (UnitIsVisible(unitid) and UnitCanAssist("player", unitid)) then
 					local masterClass = select(2, UnitClass(unitid))
+					local familyPet = UnitCreatureFamily(unitid)
 					if (masterClass) then
+						if (familyPet == L["PET_IMP"]) then
+							masterClass = "WARLOCK"
+						elseif ((familyPet == L["PET_FELHUNTER"]) or (familyPet == L["PET_SUCCUBUS"])) then
+							masterClass = "WARLOCK"
+						elseif ((familyPet == L["PET_FELGUARD"]) or (familyPet == L["PET_VOIDWALKER"])) then
+							masterClass = "WARRIOR"
+						end
 						if ((classesCheckPresent[masterClass] or 0) == (z.classcount[masterClass] or 0)) then
 							-- Only buff pets if all of master class present,
 							-- which implies they're buffed if we got this far
@@ -609,7 +618,6 @@ function zb:CheckBuffs()
 										if (not otherBuffs or not otherBuffs[needType]) then
 											if (not z:IsBlacklisted(unitname)) then
 												-- Has noone else's buff of same type
--- Toyota
 												local singleSpell, classSpell = z:GetBlessingFromType(needType)
 												if (gotSymbols and z.db.char.petsgreater and not skipGreater) then
 													limitToClass = masterClass
@@ -625,7 +633,6 @@ function zb:CheckBuffs()
 													singleNeedSpell = z:GetBlessingFromType(needType)
 													singleNeedType = needType
 												end
--- Toyota
 												del(otherBuffs)
 												break
 											end
