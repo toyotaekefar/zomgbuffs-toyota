@@ -8,6 +8,11 @@ L:RegisterTranslations("ruRU", function() return
 {
 	["Free Assign"] = "Свободное назначение",
 	["Free Assign Desc"] = "Разрешить простым игрокам изменять ваши назначения",
+	["PET_IMP"]											= "Бес",
+	["PET_FELHUNTER"]									= "Охотник Скверны",
+	["PET_SUCCUBUS"]									= "Суккуб",
+	["PET_FELGUARD"]									= "Страж Скверны",
+	["PET_VOIDWALKER"]									= "Демон Бездны",
 }
 
 end)

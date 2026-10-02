@@ -158,6 +158,12 @@ PallyPower aktzeptiert lediglich Einteilungen von berechtigten Spielern]=],
 	Whispers = "Flüsternachrichten",
 	wis = "weish.",
 	wisdom = "Weisheit",
+	["Grey out invalid Drag'n'Drop target cells"] = "Ungültige Drag-and-Drop-Zielzellen ausgrauen",
+	["PET_IMP"]											= "Wichtel",
+	["PET_FELHUNTER"]									= "Teufelsjäger",
+	["PET_SUCCUBUS"]									= "Sukkubus",
+	["PET_FELGUARD"]									= "Teufelswache",
+	["PET_VOIDWALKER"]									= "Leerwandler",
 }
 
 end)

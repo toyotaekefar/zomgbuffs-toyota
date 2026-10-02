@@ -160,6 +160,11 @@ PallyPower只接受助理以上的玩家的分配]=],
 	Whispers = "密语",
 	wis = "wis",
 	wisdom = "智慧",
+    ["PET_IMP"]                                             = "小鬼",
+    ["PET_FELHUNTER"]                                       = "地狱猎犬",
+    ["PET_SUCCUBUS"]                                        = "魅魔",
+    ["PET_FELGUARD"]                                        = "恶魔卫士",
+    ["PET_VOIDWALKER"]                                      = "虚空行者",
 }
 
 end)
