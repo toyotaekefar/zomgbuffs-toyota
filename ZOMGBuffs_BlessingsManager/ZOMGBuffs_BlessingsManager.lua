@@ -24,7 +24,7 @@ local z = ZOMGBuffs
 local man = z:NewModule("ZOMGBlessingsManager")
 ZOMGBlessingsManager = man
 
-z:CheckVersion("$Revision: 219b $")
+z:CheckVersion("$Revision: 220 $")
 
 do
 	local frostPresence = GetSpellInfo(48263)
@@ -50,10 +50,12 @@ local GetNumRaidMembers	= GetNumRaidMembers
 local IsRaidLeader		= IsRaidLeader
 local IsRaidOfficer		= IsRaidOfficer
 local UnitClass			= UnitClass
+local UnitCreatureFamily = UnitCreatureFamily
 local UnitIsConnected	= UnitIsConnected
 local UnitInParty		= UnitInParty
 local UnitInRaid		= UnitInRaid
 local UnitName			= UnitName
+local UnitCanAssist     = UnitCanAssist
 
 do
 local function getOption(v)
@@ -64,7 +66,6 @@ local function setOption(v, n)
 	man.db.profile[v] = n
 end
 
--- Toyota
 local function setFreeassign(v, n)
 	man.db.profile[v] = n
 	if man.db.profile.freeassign then
@@ -102,7 +103,6 @@ function man:SendMessage(msg)
 		end
 	end
 end
--- Toyota
 
 man.consoleCmd = L["Manager"]
 man.options = {
@@ -270,7 +270,6 @@ man.options = {
 				},
 			},
 		},
--- Toyota
 		freeassign = {
 			type = "toggle",
 			name = L["Free Assign"],
@@ -280,7 +279,6 @@ man.options = {
 			passValue = "freeassign",
 			order = 202,
 			},
--- Toyota
 	},
 }
 man.moduleOptions = man.options
@@ -339,7 +337,7 @@ local function DefaultTemplate()
 		PALADIN	= {"BOW", "BOK", "SAN", "BOM"},
 		PRIEST	= {"BOW", "BOK", "SAN"},
 		MAGE	= {"BOW", "BOK", "SAN"},
-		WARLOCK	= {"BOW", "BOK", "SAN", "BOM"},
+		WARLOCK	= {"BOW", "BOK", "SAN"},
 		subclass = DefaultTemplateSubclass(),
 	}
 end
@@ -367,9 +365,7 @@ function man:OnModuleInitialize()
 		groups = 5,
 		greyout = true,
 		showexceptions = true,
--- Toyota
 		freeassign = false,
--- Toyota
 	} )
 	z:RegisterChatCommand({"/zomgman", "/zomgmanager", "/zomgbm"}, self.options)
 	self.OnMenuRequest = self.options
@@ -1592,9 +1588,7 @@ function man:ReadPaladinSpec(pala, name)
 		pala.improvedDevotion = LGT:UnitHasTalent(name, (GetSpellInfo(20140)))
 		pala.improvedConcentration = LGT:UnitHasTalent(name, (GetSpellInfo(20254)))
 		pala.improvedRetribution = LGT:UnitHasTalent(name, (GetSpellInfo(31869)))
--- Toyota
 		pala.auramastery = LGT:UnitHasTalent(name, (GetSpellInfo(31821)))
--- Toyota
 		pala.spec = {s1, s2, s3}
 		pala.gotCapabilities = true
 		pala.canEdit = true
@@ -2576,23 +2570,17 @@ function man:AssignAurasToPaladins()
 		if (pala.improvedRetribution and wants.RETRIBUTION) then
 			score = score + 1
 		end
--- Toyota
 		local ascore = 1
 		if pala.auramastery then
 			ascore = ascore - 1
 		end
 		tinsert(scores, format("%d,%d,%s", score, ascore, palaName))
--- Toyota
 	end
 	sort(scores)
 	-- Now iterate from worst to best assigning any non-talent dependant auras
--- Toyota
 	local list = new("SHADOW", "FROST", "FIRE")
--- Toyota
 	for i,combo in ipairs(scores) do
--- Toyota	
 		local score, ascore, palaName = strsplit(",", combo)
--- Toyota
 		local pala = self.pala[palaName]
 		assert(pala)
 
@@ -2607,9 +2595,7 @@ function man:AssignAurasToPaladins()
 
 	-- Now iterate from worst to best assigning the talent dependant auras we have remaining
 	for i,combo in ipairs(scores) do
--- Toyota
 		local score, ascore, palaName = strsplit(",", combo)
--- Toyota
 		local pala = self.pala[palaName]
 		assert(pala)
 
@@ -2627,7 +2613,6 @@ function man:AssignAurasToPaladins()
 		end
 	end
 	
--- Toyota
 	for palaName,pala in pairs(self.pala) do
 		if (not pala.aura) then
 			if wants.DEVOTION then
@@ -2648,7 +2633,6 @@ function man:AssignAurasToPaladins()
 			end
 		end
 	end
--- Toyota
 
 	-- Finally, re-assign best auras again to any paladins left over without an assignment. Overlaps are fine
 	local cycle = 1
@@ -2783,9 +2767,7 @@ function man:GiveTemplate(name, quiet, playerRequested, retry)
 			if (ZOMGBlessingsPP) then
 				-- PallyPower assignments are broadcast over the RAID/PARTY addon channels, instead of via whisper, so always send them
 				ZOMGBlessingsPP:GiveTemplate(name, pala.template)
--- Toyota
 				ZOMGBlessingsPP:GiveTemplateAura(name, pala.aura)
--- Toyota
 			end
 
 			if (UnitIsConnected(name)) then
@@ -3593,12 +3575,10 @@ function man:DrawPaladin(row)
 			PalaIcon(row.title, bicon, (select(3, GetSpellInfo(19746))), true)	-- Interface\\Icons\\Spell_Holy_MindSooth
 			bicon = bicon + 1
 		end
--- Toyota
 		if ((pala.auramastery or 0) > 0) then
 			PalaIcon(row.title, bicon, (select(3, GetSpellInfo(31821))), true)
 			bicon = bicon + 1
 		end
--- Toyota
 
 		if (pala.waitingForAck) then
 			row.title.ackWait:Show()
@@ -4102,9 +4082,7 @@ end
 
 -- OnCellClick
 function man:OnCellClick(row, col, button, panel)
--- Toyota	
 	local shift = IsShiftKeyDown()
--- Toyota
 	if (button == "RightButton" and not self.configuring and not panel and self.canEdit) then
 		self:UnitContextMenu(row, col)
 	else
@@ -4161,22 +4139,46 @@ function man:OnCellClick(row, col, button, panel)
 				end
 			end
 
--- Toyota
 			if (shift and col < 11) then
-				if Type == "BOW" then
-					for i = 4, 10 do
-						self:SetCell(row, i, Type, panel)
+				local warriorBOW = false
+				local warlockBOM = false
+				for unitid, unitname, unitclass, subgroup, index in z:IterateRoster(true) do
+					if (unitclass == "PET") then
+						if (UnitIsVisible(unitid) and UnitCanAssist("player", unitid)) then
+							local familyPet = UnitCreatureFamily(unitid)
+							if ((familyPet == L["PET_FELGUARD"]) or (familyPet == L["PET_VOIDWALKER"])) then
+								warriorBOW = true
+							elseif ((familyPet == L["PET_FELHUNTER"]) or (familyPet == L["PET_SUCCUBUS"])) then
+								warlockBOM = true
+							end
+						end
 					end
-					for i = 1, 3 do
-						self:SetCell(row, i, nil, panel)
+				end
+				if (warriorBOW) then
+					z.manaClasses["WARRIOR"] = true
+				else
+					z.manaClasses["WARRIOR"] = nil
+				end
+					
+				if Type == "BOW" then		
+					for i = 1, 10 do
+						if ((i == 2) or (i == 3)) then
+							self:SetCell(row, i, "BOK", panel)
+						elseif ((z.manaClasses["WARRIOR"] == nil) and (i == 1)) then
+							self:SetCell(row, i, "BOK", panel)
+						else
+							self:SetCell(row, i, Type, panel)
+						end
 					end
 				elseif Type == "BOM" then
-					for i = 1, 7 do
-						self:SetCell(row, i, Type, panel)
-					end
-					self:SetCell(row, 10, Type, panel)
-					for i = 8, 9 do
-						self:SetCell(row, i, nil, panel)
+					for i = 1, 10 do
+						if ((i == 8) or (i == 9)) then
+							self:SetCell(row, i, "BOK", panel)
+						elseif ((i == 10) and (warlockBOM == false)) then
+							self:SetCell(row, i, "BOK", panel)						
+						else
+							self:SetCell(row, i, Type, panel)
+						end
 					end
 				else
 					for i = 1, 10 do
@@ -4186,7 +4188,6 @@ function man:OnCellClick(row, col, button, panel)
 			else
 				self:SetCell(row, col, Type, panel)
 			end
--- Toyota
 			self:DrawAll(panel)
 		end
 	end
@@ -4717,9 +4718,7 @@ function man:OnReceiveCapability(sender, cap)
 		psender.improvedDevotion = cap.improvedDevotion
 		psender.improvedConcentration = cap.improvedConcentration
 		psender.improvedRetribution = cap.improvedRetribution
--- Toyota		
 		psender.auramastery = cap.auramastery
--- Toyota
 		self.pala[sender].gotCapabilities = true
 	end
 
