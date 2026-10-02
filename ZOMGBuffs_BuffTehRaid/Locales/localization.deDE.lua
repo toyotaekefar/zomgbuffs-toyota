@@ -1,11 +1,6 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGBuffTehRaid")
 
-L:RegisterTranslations("deDE", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
+L:RegisterTranslations("deDE", function() return {
 	["Adjust the scale of the tracking icon"] = "Größe des Tracker Symbols einstellen",
 	Anchor = "Anker",
 	[" and "] = " und",
@@ -68,6 +63,10 @@ L:RegisterTranslations("deDE", function() return
 	["Warning: %s has auto-assigned themselves to buff groups %s, but you have the Auto Group Assignment option disabled"] = "Warnung: %s hat sich selbst automatisch den Gruppen %s zugewiesen, obwohl deine Auto Gruppen Einteilung Option deaktiviert ist",
 	["WARNING: The intended target for this icon has changed since you entered combat. (Was %s)"] = "WARNUNG: Das vorgesehene Ziel für dieses Symbol hat sich geändert, seitdem du im Kampf warst. (War zuvor %s)",
 	["You are now responsible for Groups %s"] = "Du bist nun verantwortlich für die Gruppen %s",
-}
-
-end)
+	["Auto assign sensible group assignment based the order of your name alphabilically compared to others of your class. All going well, and all using ZOMGBuffs and everyone should end up with different assignments without need for discussion"] = "Weist Gruppen automatisch basierend auf der alphabetischen Reihenfolge deines Namens im Vergleich zu anderen deiner Klasse zu. Wenn alle ZOMGBuffs nutzen, erhält jeder ohne Absprache unterschiedliche Zuweisungen.",
+	["Disables auto-casting for %s in favor of rebuffing via tracker icons or their hotkeys"] = "Deaktiviert das automatische Zaubern für %s zugunsten der Erneuerung über Tracker-Symbole oder Hotkeys",
+    ["Lock"]                                             = "Sperren",
+    ["Lock all the Tracker icons to their current position"] = "Alle Tracker-Symbole an ihrer aktuellen Position fixieren",
+	["If noone is selected for this buff when you disable it, then the next time it is enabled, everyone will default to ON. If disabled, the last settings will be remembered"] = "Wenn beim Deaktivieren niemand ausgewählt ist, werden beim nächsten Aktivieren 표준mäßig alle ausgewählt. Wenn deaktiviert, werden die letzten Einstellungen gespeichert.",
+	["Mark"]                                             = "Mal der Wildnis",
+} end)

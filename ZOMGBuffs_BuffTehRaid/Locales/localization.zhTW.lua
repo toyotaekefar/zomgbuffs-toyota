@@ -1,12 +1,7 @@
 ﻿local L = LibStub("AceLocale-2.2"):new("ZOMGBuffTehRaid")
 
-L:RegisterTranslations("zhTW", function() return
---[===[@debug@	
-{
-}
---@end-debug@]===]
-{
-	["Adjust the scale of the tracking icon"] = "更改跟蹤圖示的縮放等級",
+L:RegisterTranslations("zhTW", function() return {
+    ["Adjust the scale of the tracking icon"] = "更改跟蹤圖示的縮放等級",
 	Anchor = "錨點",
 	[" and "] = "以及",
 	["Auto-Assign"] = "自動分配",
@@ -72,7 +67,6 @@ L:RegisterTranslations("zhTW", function() return
 	["Warning: %s has auto-assigned themselves to buff groups %s, but you have the Auto Group Assignment option disabled"] = "警告：%s 已經自動分配他們自己Buff %s隊，而你沒有開啟自動隊伍分配選項",
 	["WARNING: The intended target for this icon has changed since you entered combat. (Was %s)"] = "警告：自從進入戰鬥以來，這個圖示預期的作用目標已經被更改（之前是 %s）",
 	["You are now responsible for Groups %s"] = "你現在負責Buff %s隊",
-}
-
-end)
-
+    ["Lock"]                                        = "鎖定",
+    ["Lock all the Tracker icons to their current position"] = "將所有追蹤圖示鎖定在當前位置",
+} end)

@@ -1,11 +1,6 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGBuffTehRaid")
 
-L:RegisterTranslations("frFR", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
+L:RegisterTranslations("frFR", function() return {
 	Anchor = "Ancrage",
 	[" and "] = " et ",
 	["Auto-Assign"] = "Assignation automatique",
@@ -28,7 +23,7 @@ L:RegisterTranslations("frFR", function() return
 	["How many players of a group must need a buff before the group version is cast"] = "Nombre de joueur minimum d'un groupe nécessitant un buff avant de lancer un buff de groupe",
 	Invert = "Inversion",
 	["Invert the need/got alpha values"] = "Intervertie les valeurs de transaprence de besoins/a",
-	Mark = "Marque",
+	Mark = "Marque du fauve",
 	["Minimum Group"] = "Minimum pour un groupe",
 	["MISSING!"] = "MANQUANT !",
 	["(modified)"] = "(modifié)",
@@ -50,6 +45,28 @@ L:RegisterTranslations("frFR", function() return
 	["Warning: %s has auto-assigned themselves to buff groups %s, but you have the Auto Group Assignment option disabled"] = "Attention : %s ont été auto-assigné pour buffer les groupes %s, cependant vous n'avez pas activez l'option d'auto-assignement",
 	["WARNING: The intended target for this icon has changed since you entered combat. (Was %s)"] = "ATTENTION : La cible prévue pour cette icône a changé depuis que vous êtes entré en combat (C'était %s)",
 	["You are now responsible for Groups %s"] = "Vous êtes maintenant responsable des buffs du groupe %s",
-}
-
-end)
+	["%s cooldown ready for %s"]                         = "Recharge de %s prête pour %s",
+	["Adjust the scale of the tracking icon"]        = "Ajuster l'échelle de l'icône de suivi",
+	["Create a tracking icon for certain exclusive spells (Earth Shield, Fear Ward). Note that the icon can always display the correct status of the spell, but if you change targets in combat then the click action will be to the player who it was last set to before entering combat"] = "Crée une icône de suivi pour certains sorts exclusifs (Bouclier de terre, Gardien de la peur). L'icône affiche le bon statut, mais changer de cible en combat redirigera le clic vers le joueur défini avant le combat.",
+	["Define the key used for rebuffing %s from it's Spell Tracker icon"] = "Définir la touche pour relancer %s depuis son icône de suivi",
+	["Disables auto-casting for %s in favor of rebuffing via tracker icons or their hotkeys"] = "Désactive le lancement automatique de %s au profit du rebuff via les icônes de suivi ou leurs raccourcis",
+	["Enable"]                                           = "Activer",
+	["Lock"]                                             = "Verrouiller",
+    ["Lock all the Tracker icons to their current position"] = "Verrouiller toutes les icônes de suivi sur leur position actuelle",
+    ["TICKCLICKHELP1"]                                   = "|cFFFFFFFFClic|r pour basculer le joueur",
+    ["TICKCLICKHELP2"]                                   = "|cFFFFFFFFClic droit|r pour basculer tout le monde",
+    ["TICKCLICKHELP3"]                                   = "|cFFFFFFFFAlt-Clic|r pour basculer la classe $class",
+    ["TICKCLICKHELP4"]                                   = "|cFFFFFFFFShift-Clic|r pour basculer le groupe $party",
+	["Key-Binding"]                                      = "Raccourci",
+	["Learnable"]                                        = "Mémorisable",
+	["Reset on Clear"]                                   = "Réinitialiser à la désactivation",
+	["Reset the position of the tracker icon"]        = "Réinitialiser la position de l'icône de suivi",
+	["Scale"]                                            = "Échelle",
+	["Single Spells"]                                    = "Sorts uniques",
+    ["Single spell configuration"]                       = "Configuration des sorts uniques",
+	["Spell Tracker"]                                    = "Suivi des sorts",
+	["This button is not clickable because it was created after you entered combat"] = "Ce bouton n'est pas cliquable car il a été créé après votre entrée en combat",
+	["Tracker"]                                          = "Suivi",
+    ["Tracker Icon for single target exclusive buffs"] = "Icône de suivi pour sorts exclusifs à cible unique",
+	["If noone is selected for this buff when you disable it, then the next time it is enabled, everyone will default to ON. If disabled, the last settings will be remembered"] = "Si personne n'est sélectionné au moment de désactiver ce buff, tout le monde sera activé par défaut à la réactivation. Si désactivé, les derniers réglages seront conservés.", 
+} end)
