@@ -183,13 +183,12 @@ end
 z.new, z.del, z.deepDel, z.copy = new, del, deepDel, copy
 z.classOrder = classOrder
 z.classIndex = classIndex
-z.manaClasses = {HUNTER = true, DRUID = true, SHAMAN = true, PALADIN = true, PRIEST = true, MAGE = true, WARLOCK = true}
-if (select(4, GetBuildInfo()) >= 40000) then
-	z.manaClasses.HUNTER = nil
-end
+z.manaClasses = {WARRIOR = true, HUNTER = true, DRUID = true, SHAMAN = true, PALADIN = true, PRIEST = true, MAGE = true, WARLOCK = true}
+--if (select(4, GetBuildInfo()) >= 40000) then
+	--z.manaClasses.HUNTER = nil
+--end
 
 z.blessingColour = {BOK = "|cFFFF80FF", BOM = "|cFFFF5050", BOL = "|cFF80FF80", BOS = "|cFFFFA0A0", BOW = "|cFF8080FF", SAC = "|cFFFF0000", SAN = "|cFF4040C0", BOF = "|cFFFFCC19"}
---Toyota
 --, BOP = "|cFF00FF00"}
 do
 	local allBuffs = {
@@ -253,7 +252,6 @@ do
 		{id = 25898, type = "BOK", dur = 30,	class = true},						-- Greater Blessing of Kings
 		{id = 20911, type = "SAN", dur = 5,					short = L["Sanctuary"]}, -- Blessing of Sanctuary
 		{id = 25899, type = "SAN", dur = 30,	class = true},						-- Greater Blessing of Sanctuary
-		--Toyota
 		--{id = 10278, type = "BOP", dur = 0.2, noTemplate = true},					-- Hand of Protection
 	}
 
@@ -287,7 +285,7 @@ do
 	end
 end
 
-z.version = tonumber(string.sub("$Revision: 219a $", 12, -3)) or 1
+z.version = tonumber(string.sub("$Revision: 220 $", 12, -3)) or 1
 z.versionCompat = 65478 - 82090				-- 65478 is the compat version check
 z.title = L["TITLE"]
 z.titleColour = L["TITLECOLOUR"]
