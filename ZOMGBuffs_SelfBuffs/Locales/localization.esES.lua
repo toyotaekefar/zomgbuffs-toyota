@@ -1,11 +1,48 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGSelfBuffs")
 
-L:RegisterTranslations("esES", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
-}
-
-end)
+L:RegisterTranslations("esES", function() return {
+    ["Self Buff Configuration"]                                 = "Configuración de beneficios personales",
+    ["Self"]                                                    = "Personal",
+    ["Templates"]                                               = "Plantillas",
+    ["Template configuration"]                                  = "Configuración de plantillas",
+    ["Class Spells"]                                            = "Hechizos de clase",
+    ["Class spell configuration"]                               = "Configuración de hechizos de clase",
+    ["Items"]                                                   = "Objetos",
+    ["Item configuration"]                                      = "Configuración de objetos",
+    ["Use this item or spell on the main hand weapon"]         = "Usar este objeto o hechizo en el arma de la mano derecha",
+    ["Off Hand"]                                                = "Mano izquierda",
+    ["Use this item or spell on the off hand weapon"]          = "Usar este objeto o hechizo en el arma de la mano izquierda",
+    ["You need |cFFFFFF80%s|r"]                                 = "Necesitas |cFFFFFF80%s|r",
+    ["You need %s"]                                             = "Necesitas %s",
+    ["You need |c0080FF80%s|r on |c00FFFF80%s|r"]               = "Necesitas |c0080FF80%s|r en |c00FFFF80%s|r",
+    ["You need %s on |c00FFFF80%s|r"]                           = "Necesitas %s en |c00FFFF80%s|r",
+    ["You need %s on %s"]                                       = "Necesitas %s en %s",
+    ["Tracking"]                                                = "Rastreo",
+    ["Tracking configuration"]                                  = "Configuración de rastreo",
+    ["Behaviour"]                                               = "Comportamiento",
+    ["Self buffing behaviour"]                                  = "Comportamiento de beneficios personales",
+    ["Auto buffs"]                                              = "Auto-beneficios",
+    ["Use auto-intelligent buffs such as Crusader Aura when mounted"] = "Usar beneficios auto-inteligentes como Aura de cruzado al estar montado",
+    ["Self Buffs Template: "]                                   = "Plantilla de beneficios personales: ",
+    ["(modified)"]                                              = "(modificado)",
+    ["none"]                                                    = "ninguno",
+    ["Main Hand"]                                               = "Mano derecha",
+    ["Seals"]                                                   = "Sellos",
+    ["Expiry Prelude"]                                          = "Aviso de expiración",
+    ["Rebuff prelude for %s (0=Module default)"]               = "Aviso de renovación para %s (0=Predeterminado)",
+    ["Minimum Charges"]                                         = "Cargas mínimas",
+    ["Rebuff if number of charges left is less than defined amount"] = "Renovar si el número de cargas restantes es menor que la cantidad definida",
+    ["Default"]                                                 = "Predeterminado",
+    ["Default rebuff prelude for all self buffs"]               = "Aviso de renovación predeterminado para todos los beneficios personales",
+    ["Warning: |cFF%s%s|r already applied by another %s"]       = "Advertencia: |cFF%s%s|r ya aplicado por otro %s",
+    ["Combat Warnings"]                                         = "Advertencias en combate",
+    ["Warn about expiring buffs in combat. Note that auto buffing cannot be done in combat, this is simply a reminder"] = "Advertir sobre beneficios que expiran en combate. Ten en cuenta que los auto-beneficios no funcionan en combate, esto es solo un recordatorio",
+    ["%s, %s%d|r %s remain"]                                    = "%s, %s%d|r %s restante(s)",
+    ["Learnable"]                                               = "Memorizable",
+    ["Remember this spell when it's cast manually?"]            = "¿Recordar este hechizo al lanzarlo manualmente?",
+    ["Reagent Reminder"]                                        = "Recordatorio de componentes",
+    ["Show message when spells requiring reagents are used"]    = "Mostrar mensaje al usar hechizos que requieren componentes",
+    ["Flask of the North"]                                      = "Frasco del Norte",
+    ["Special handling for Flask of the North"]                 = "Manejo especial para Frasco del Norte",
+    ["Expiry prelude for flasks"]                               = "Aviso de expiración para frascos",
+} end)

@@ -1,11 +1,48 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGSelfBuffs")
 
-L:RegisterTranslations("ruRU", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
-{
-}
-
-end)
+L:RegisterTranslations("ruRU", function() return {
+    ["Self Buff Configuration"]                                 = "Настройка баффов на себя",
+    ["Self"]                                                    = "Свои",
+    ["Templates"]                                               = "Шаблоны",
+    ["Template configuration"]                                  = "Настройка шаблонов",
+    ["Class Spells"]                                            = "Классовые заклинания",
+    ["Class spell configuration"]                               = "Настройка классовых заклинаний",
+    ["Items"]                                                   = "Предметы",
+    ["Item configuration"]                                      = "Настройка предметов",
+    ["Use this item or spell on the main hand weapon"]         = "Использовать этот предмет или заклинание на оружие в правой руке",
+    ["Off Hand"]                                                = "Левая рука",
+    ["Use this item or spell on the off hand weapon"]          = "Использовать этот предмет или заклинание на оружие в левой руке",
+    ["You need |cFFFFFF80%s|r"]                                 = "Вам нужен |cFFFFFF80%s|r",
+    ["You need %s"]                                             = "Вам нужен %s",
+    ["You need |c0080FF80%s|r on |c00FFFF80%s|r"]               = "Вам нужен |c0080FF80%s|r на |c00FFFF80%s|r",
+    ["You need %s on |c00FFFF80%s|r"]                           = "Вам нужен %s на |c00FFFF80%s|r",
+    ["You need %s on %s"]                                       = "Вам нужен %s на %s",
+    ["Tracking"]                                                = "Отслеживание",
+    ["Tracking configuration"]                                  = "Настройка отслеживания",
+    ["Behaviour"]                                               = "Поведение",
+    ["Self buffing behaviour"]                                  = "Поведение баффов на себя",
+    ["Auto buffs"]                                              = "Авто-баффы",
+    ["Use auto-intelligent buffs such as Crusader Aura when mounted"] = "Автоматически применять умные баффы (например, Аура верховой езды при езде верхом)",
+    ["Self Buffs Template: "]                                   = "Шаблон баффов на себя: ",
+    ["(modified)"]                                              = "(изменено)",
+    ["none"]                                                    = "нет",
+    ["Main Hand"]                                               = "Правая рука",
+    ["Seals"]                                                   = "Печати",
+    ["Expiry Prelude"]                                          = "Время предпреждения",
+    ["Rebuff prelude for %s (0=Module default)"]               = "Время предупреждения для %s (0 = по умолчанию)",
+    ["Minimum Charges"]                                         = "Минимум зарядов",
+    ["Rebuff if number of charges left is less than defined amount"] = "Баффать снова, если осталось меньше указанного количества зарядов",
+    ["Default"]                                                 = "По умолчанию",
+    ["Default rebuff prelude for all self buffs"]               = "Время предупреждения по умолчанию для всех собственных баффов",
+    ["Warning: |cFF%s%s|r already applied by another %s"]       = "Предупреждение: |cFF%s%s|r уже наложен другим %s",
+    ["Combat Warnings"]                                         = "Предупреждения в бою",
+    ["Warn about expiring buffs in combat. Note that auto buffing cannot be done in combat, this is simply a reminder"] = "Предупреждать об истекающих баффах в бою. Учтите, что авто-бафф не работает в бою, это лишь напоминание",
+    ["%s, %s%d|r %s remain"]                                    = "%s, %s%d|r %s осталось",
+    ["Learnable"]                                               = "Запоминание",
+    ["Remember this spell when it's cast manually?"]            = "Запоминать это заклинание при ручном применении?",
+    ["Reagent Reminder"]                                        = "Напоминание о реагентах",
+    ["Show message when spells requiring reagents are used"]    = "Показывать сообщение при использовании заклинаний, требующих реагенты",
+    ["Flask of the North"]                                      = "Настой севера",
+    ["Special handling for Flask of the North"]                 = "Особая обработка Настоя севера",
+    ["Expiry prelude for flasks"]                               = "Время предупреждения для настоев",
+} end)

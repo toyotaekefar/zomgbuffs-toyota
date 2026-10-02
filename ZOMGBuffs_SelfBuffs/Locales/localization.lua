@@ -9,7 +9,6 @@ L:RegisterTranslations("enUS", function() return {
 	["Class spell configuration"]							= true,
 	["Items"]												= true,
 	["Item configuration"]									= true,
-	["Main Hand"]											= true,
 	["Use this item or spell on the main hand weapon"]		= true,
 	["Off Hand"]											= true,
 	["Use this item or spell on the off hand weapon"]		= true,
@@ -28,7 +27,6 @@ L:RegisterTranslations("enUS", function() return {
 	["(modified)"]											= true,
 	["none"]												= true,
 	["Main Hand"]											= true,
-	["Off Hand"]											= true,
 	["Seals"]												= true,				-- Generic Paladin 'Seal of ' description
 	["Expiry Prelude"]										= true,
 	["Rebuff prelude for %s (0=Module default)"]			= true,

@@ -1,10 +1,6 @@
-local L = LibStub("AceLocale-2.2"):new("ZOMGSelfBuffs")
+﻿local L = LibStub("AceLocale-2.2"):new("ZOMGSelfBuffs")
 
 L:RegisterTranslations("koKR", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
 {
 	["Template configuration"] = "템플릿 설정",
 	Templates = "템플릿",
@@ -12,6 +8,42 @@ L:RegisterTranslations("koKR", function() return
 	["Tracking configuration"] = "트래킹 설정",
 	["Use this item or spell on the main hand weapon"] = "이 아이템이나 주문을 주무기 슬롯에 사용합니다.",
 	["Use this item or spell on the off hand weapon"] = "이 아이템이나 주문을 보조무기 슬롯에 사용합니다.",
-}
-
-end)
+    ["Self Buff Configuration"]                                 = "자신 버프 설정",
+    ["Self"]                                                    = "자신",
+    ["Class Spells"]                                            = "직업 주문",
+    ["Class spell configuration"]                               = "직업 주문 설정",
+    ["Items"]                                                   = "아이템",
+    ["Item configuration"]                                      = "아이템 설정",
+    ["Off Hand"]                                                = "보조장비",
+    ["You need |cFFFFFF80%s|r"]                                 = "|cFFFFFF80%s|r 필요",
+    ["You need %s"]                                             = "%s 필요",
+    ["You need |c0080FF80%s|r on |c00FFFF80%s|r"]               = "|c00FFFF80%s|r에 |c0080FF80%s|r 필요",
+    ["You need %s on |c00FFFF80%s|r"]                           = "|c00FFFF80%s|r에 %s 필요",
+    ["You need %s on %s"]                                       = "%s에 %s 필요",
+    ["Behaviour"]                                               = "동작",
+    ["Self buffing behaviour"]                                  = "자신 버프 동작",
+    ["Auto buffs"]                                              = "자동 버프",
+    ["Use auto-intelligent buffs such as Crusader Aura when mounted"] = "탈것 타고 있을 때 성전사의 오라 같은 지능형 자동 버프 사용",
+    ["Self Buffs Template: "]                                   = "자신 버프 서식: ",
+    ["(modified)"]                                              = "(수정됨)",
+    ["none"]                                                    = "없음",
+    ["Main Hand"]                                               = "주장비",
+    ["Seals"]                                                   = "문양",
+    ["Expiry Prelude"]                                          = "만료 예고",
+    ["Rebuff prelude for %s (0=Module default)"]               = "%s의 재버프 예고 시간 (0=모듈 기본값)",
+    ["Minimum Charges"]                                         = "최소 횟수",
+    ["Rebuff if number of charges left is less than defined amount"] = "남은 횟수가 지정된 값보다 적으면 재버프",
+    ["Default"]                                                 = "기본값",
+    ["Default rebuff prelude for all self buffs"]               = "모든 자신 버프의 기본 재버프 예고 시간",
+    ["Warning: |cFF%s%s|r already applied by another %s"]       = "경고: |cFF%s%s|r은(는) 이미 다른 %s에 의해 적용됨",
+    ["Combat Warnings"]                                         = "전투 경고",
+    ["Warn about expiring buffs in combat. Note that auto buffing cannot be done in combat, this is simply a reminder"] = "전투 중 만료되는 버프 경고. 전투 중에는 자동 버프를 사용할 수 없으며, 단지 알림용입니다",
+    ["%s, %s%d|r %s 남음"]                                      = "%s, %s%d|r %s 남음",
+    ["Learnable"]                                               = "습득 가능",
+    ["Remember this spell when it's cast manually?"]            = "수동으로 시전할 때 이 주문을 기억합니까?",
+    ["Reagent Reminder"]                                        = "재료 알림",
+    ["Show message when spells requiring reagents are used"]    = "시약이 필요한 주문 사용 시 메시지 표시",
+    ["Flask of the North"]                                      = "북부의 영약",
+    ["Special handling for Flask of the North"]                 = "북부의 영약 특별 처리",
+    ["Expiry prelude for flasks"]                               = "영약 만료 예고 시간",
+} end)

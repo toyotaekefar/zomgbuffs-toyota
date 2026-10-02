@@ -1,10 +1,6 @@
 local L = LibStub("AceLocale-2.2"):new("ZOMGSelfBuffs")
 
 L:RegisterTranslations("frFR", function() return
---[===[@debug@
-{
-}
---@end-debug@]===]
 {
 	["Auto buffs"] = "Buffs automatique",
 	Behaviour = "Comportement",
@@ -46,6 +42,10 @@ L:RegisterTranslations("frFR", function() return
 	["You need %s"] = "Vous avez besoin de %s",
 	["You need %s on |c00FFFF80%s|r"] = "Vous avez besoin de %s sur |c00FFFF80%s|r",
 	["You need %s on %s"] = "Vous avez besoin de %s sur %s",
+	["Expiry prelude for flasks"]                               = "Délai de prévenance pour les flacons",
+	["Learnable"]                                               = "Mémorisable",
+	["Show message when spells requiring reagents are used"]    = "Afficher un message lors de l'utilisation de sorts nécessitant des composants",
+	["Special handling for Flask of the North"]                 = "Gestion spéciale pour le Flacon du Nord",
 }
 
 end)
