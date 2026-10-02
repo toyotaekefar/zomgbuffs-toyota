@@ -278,6 +278,8 @@ E-mail：{X-Email}
 	["You have run out of %q, now using single target buffs"] = "你的 %q 用完了，現在起改用單體目標Buff",
 	["<ZOMG> Missing %s: %s"] = "<ZOMG> 缺少 %s：%s",
 	ZONED = "你剛剛切換了區域，請稍等一會兒",
+	["Ignore 6-8 Groups"]        = "忽略 6-8 隊",
+    ["If players are in groups 6, 7, or 8, count them as being present and buff everyone else"] = "若玩家處於第 6、7 或 8 隊，將其視為已到場並為其他所有人補 Buff",
 }
 
 end)

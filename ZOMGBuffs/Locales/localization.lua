@@ -215,10 +215,8 @@ L:RegisterTranslations("enUS", function() return {
 	["Don't auto buff when you have Spirit Tap, so you can maximise your regeneration"] = true,
 	["Buff Pets"]			= true,
 	["Perform extra checks for pets in case any missed the group buffs when they were done"] = true,
--- Toyota
 	["Greater Blessings for Pets"]			= true,
 	["Don't skimp on reagents and buff pets only with greater blessings."] = true,
--- Toyota
 	["Position the notification area"] = true,
 	["Learning"]			= true,
 	["Setup spell learning behaviour"] = true,
@@ -276,7 +274,7 @@ L:RegisterTranslations("enUS", function() return {
 	["CHATANSWER"]			= "<ZOMG>",
 	["PERSONDIES"]			= "^([^%s]+) dies%.$",
 	
-	ABOUT				=	"All in one buffing mod for all classes. Paladin buff generated assignments based on Paladin capabilities and raid member sub-classes (druid tank vs. druid healer etc.). Plus overview of important raid buffs, and instant access rebuff on right click.\r\r"..
+	["ABOUT"]				=	"All in one buffing mod for all classes. Paladin buff generated assignments based on Paladin capabilities and raid member sub-classes (druid tank vs. druid healer etc.). Plus overview of important raid buffs, and instant access rebuff on right click.\r\r"..
 							"Author: {Author}\r"..
 							"Category: {X-Category}\r"..
 							"E-mail: {X-Email}\r"..

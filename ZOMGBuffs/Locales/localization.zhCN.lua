@@ -116,6 +116,8 @@ E-mail：{X-Email}
 	Icon = "图标",
 	["Icon Size"] = "图标大小",
 	["If players are offline, AFK or in another instance, count them as being present and buff everyone else"] = "假如玩家掉线，暂离或者在另外一个副本，将他们算作存在并Buff其它的人",
+	["Ignore 6-8 Groups"]        = "忽略 6-8 队",
+    ["If players are in groups 6, 7, or 8, count them as being present and buff everyone else"] = "若玩家处于第 6、7 或 8 队，将其视为已到场并为其他所有人补 Buff",
 	["Ignore Absent"] = "忽略缺席者",
 	["In-Combat"] = "战斗中",
 	Information = "信息",
